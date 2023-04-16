@@ -1,14 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/js/script.js"></script>
+    <script defer src="https://kit.fontawesome.com/0f739cc4b2.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+
 <body>
-    <h1>well howya now</h1>
+    <header>
+        <h1>Welcome to Picture This</h1>
+        <p>All you have to do is match the landmark shown to the picture shown</p>
+    </header>
+    <section class="home-container">
+        <div class="quiz-home-page" id="quiz-home-page">
+            <div class="nav-bar">
+                <div><i class="fa-solid fa-house"></i></div>
+                <div><i class="fa-solid fa-volume-xmark hide"></i></div>
+                <div><i class="fa-solid fa-volume-high"></i></div>
+            </div>
+            <div class="home-btn-container">
+                <button class="button begin-quiz-button"></button>
+                <button class="button high-score-button"></button>
+                <button class="button rules-button"></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="rules-container hide">
+        <div class="quiz-rules-page" id="quiz-rules-page">
+            <div class="nav-bar">
+                <div><i class="fa-solid fa-house"></i></div>
+                <div><i class="fa-solid fa-volume-xmark hide"></i></div>
+                <div><i class="fa-solid fa-volume-high"></i></div>
+            </div>
+            <h1>Picture This</h1>
+            <h2>How To Play:</h2>
+            <h3>Good at geography?</h3>
+            <h3>Alright then, come and have a go!</h3>
+            <p>The rules are easy.</p>
+            <ul>
+                <li>To begin the quiz select Let's Go! on the Home Page</li>
+                <li>You will then need to create a username and select Begin</li>
+                <li>Once the quiz starts, you must match the landmark shown to the correct option below</li>
+                <li>Each correct answer will result in 10 points</li>
+                <li>But don't delay - there will be a 15 second timer for each question!</li>
+            </ul>
+            <p>Think you're ready? Back to the Home Page to begin</p>
+            <p>Good Luck!</p>
+
+        </div>
+    </section>
+
+    <section class="quiz-container hide">
+        <div class="quiz-game-page" id="quiz-game-page">
+            <div class="nav-bar">
+                <div><i class="fa-solid fa-house"></i></div>
+                <div><i class="fa-solid fa-stopwatch"></i></div>
+                <div><i class="fa-solid fa-question"></i></div>
+                <div><i class="fa-solid fa-volume-xmark hide"></i></div>
+                <div><i class="fa-solid fa-volume-high"></i></div>
+            </div>
+            <div class="question-container" id="question-container">
+                <img>
+            </div>
+            <div class="options-container" id="options-container">
+                
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
