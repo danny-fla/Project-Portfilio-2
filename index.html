@@ -8,14 +8,16 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/js/script.js"></script>
     <script defer src="https://kit.fontawesome.com/0f739cc4b2.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Picture This!</title>
 </head>
 
 <body>
+    <!-- Home Page-->
     <header>
-        <h1>Welcome to Picture This</h1>
+        <h1>Welcome to Picture This!</h1>
         <p>All you have to do is match the landmark shown to the picture shown</p>
     </header>
+    <br>
     <section class="home-container">
         <div class="quiz-home-page" id="quiz-home-page">
             <div class="nav-bar">
@@ -30,7 +32,7 @@
             </div>
         </div>
     </section>
-
+<!-- Quiz Rules Page-->
     <section class="rules-container hide">
         <div class="quiz-rules-page" id="quiz-rules-page">
             <div class="nav-bar">
@@ -38,7 +40,8 @@
                 <div><i class="fa-solid fa-volume-xmark hide"></i></div>
                 <div><i class="fa-solid fa-volume-high"></i></div>
             </div>
-            <h1>Picture This</h1>
+            <h1>Picture This!</h1>
+            <br>
             <h2>How To Play:</h2>
             <h3>Good at geography?</h3>
             <h3>Alright then, come and have a go!</h3>
@@ -55,7 +58,7 @@
 
         </div>
     </section>
-
+<!--Quiz Page -->
     <section class="quiz-container hide">
         <div class="quiz-game-page" id="quiz-game-page">
             <div class="nav-bar">
@@ -68,10 +71,50 @@
             <div class="question-container" id="question-container">
                 <img>
             </div>
+            <br>
             <div class="options-container" id="options-container">
-                
+                <button aria-label="Option 1" class="button option-btn option-1-btn">Option 1</button>
+                <button aria-label="Option 2" class="button option-btn option-2-btn">Option 2</button>
+                <button aria-label="Option 3" class="button option-btn option-3-btn">Option 3</button>
+                <button aria-label="Option 4" class="button option-btn option-4-btn">Option 4</button>
+            </div>
+            <div class="next-retry-buttons">
+                <button aria-label="Restart Quiz" class="button retry-button"><i class="fa-solid fa-rotate-left"></i></button>
+                <button aria-label="Next Question" class="button next-button"><i class="fa-sharp fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
+    </section>
+<!-- End Of Quiz Page-->
+    <section class="quiz-complete hidden" id="quiz-complete">
+        <div class="nav-bar">
+            <div><i class="fa-solid fa-volume-xmark hide"></i></div>
+            <div><i class="fa-solid fa-volume-high"></i></div>
+        </div>
+        <div>
+            <h1>Picture This!</h1>
+        </div>
+        <br>
+        <p class="user-score">Your total score is <span>user-score</span></p>
+        <div class="results-container">
+            <input type="text" name="username" id="username" placeholder="username">
+            <button aria-label="Enter Username" class="button enter-username-btn">Enter Username</button>
+            <button aria-label="Home" class="button home-button">Home</button>
+        </div>
+    </section>
+    <!--High Scores Page-->
+    <section class="high-scores hidden" id="high-scores">
+        <div class="nav-bar">
+            <div><i class="fa-solid fa-volume-xmark hide"></i></div>
+            <div><i class="fa-solid fa-volume-high"></i></div>
+        </div>
+        <div>
+            <h1>Picture This!</h1>
+        </div>
+        <br>
+        <div>
+            <ul id="quizzers-scores"></ul>
+        </div>
+        <button aria-label="Home" class="button end-button">Home</button>
     </section>
 </body>
 
