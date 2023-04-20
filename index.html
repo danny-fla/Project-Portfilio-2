@@ -14,10 +14,9 @@
 <body>
     <!-- Home Page-->
     <header>
-        <h1>Welcome to Picture This!</h1>
-        <p>All you have to do is match the landmark shown to the picture shown</p>
+        <h1>Picture This!</h1>
     </header>
-    <br>
+    
     <section class="home-container">
         <div class="quiz-home-page" id="quiz-home-page">
             <div class="nav-bar">
@@ -25,6 +24,9 @@
                 <div><i class="fa-solid fa-volume-xmark hide"></i></div>
                 <div><i class="fa-solid fa-volume-high"></i></div>
             </div>
+            <hr>
+            <h1>Welcome to Picture This!</h1>
+            <p>All you have to do is match the landmark to the correct option</p>
             <div class="home-btn-container">
                 <button class="button begin-quiz-button"></button>
                 <button class="button high-score-button"></button>
@@ -71,7 +73,7 @@
             <div class="question-container" id="question-container">
                 <img>
             </div>
-            <br>
+            <hr>
             <div class="options-container" id="options-container">
                 <button aria-label="Option 1" class="button option-btn option-1-btn">Option 1</button>
                 <button aria-label="Option 2" class="button option-btn option-2-btn">Option 2</button>
@@ -87,7 +89,7 @@
         </div>
     </section>
     <!-- End Of Quiz Page-->
-    <section class="quiz-complete hidden" id="quiz-complete">
+    <section class="quiz-complete hide" id="quiz-complete">
         <div class="nav-bar">
             <div><i class="fa-solid fa-volume-xmark hide"></i></div>
             <div><i class="fa-solid fa-volume-high"></i></div>
@@ -95,7 +97,7 @@
         <div>
             <h1>Picture This!</h1>
         </div>
-        <br>
+        <hr>
         <p class="user-score">Your total score is <span>user-score</span></p>
         <div class="results-container">
             <input type="text" name="username" id="username" placeholder="username">
@@ -104,7 +106,7 @@
         </div>
     </section>
     <!--High Scores Page-->
-    <section class="high-scores hidden" id="high-scores">
+    <section class="high-scores hide" id="high-scores">
         <div class="nav-bar">
             <div><i class="fa-solid fa-volume-xmark hide"></i></div>
             <div><i class="fa-solid fa-volume-high"></i></div>
