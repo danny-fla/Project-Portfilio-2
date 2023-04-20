@@ -1,5 +1,4 @@
-
- @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Lato&display=swap');
 
 
 * {
@@ -19,17 +18,22 @@ body {
     letter-spacing: 1.5px;
     text-align: center;
 }
+
 header {
-   display: flexbox;
-   grid-template-columns: 1fr 1fr 1fr;
+    display: flexbox;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 header h1 {
-    text-shadow: rgba(255, 213, 128) 1.5px 0 1px;
+    text-shadow: yellow 1.5px 0 1px;
     font-size: 3.5em;
 }
 
-.home-container, .rules-container, .quiz-container, .quiz-complete, .high-scores {
+.home-container,
+.rules-container,
+.quiz-container,
+.quiz-complete,
+.high-scores {
     background-color: rgba(162, 200, 200, 0.8);
     height: 80%;
     width: 60%;
@@ -42,28 +46,31 @@ header h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     box-shadow: 0 0 12px 1px;
     margin: 20px auto;
 }
 
 .nav-bar {
-    background-color: blue;
     display: flex;
     justify-content: space-around;
     padding: 10px;
     margin: 10px 0;
     position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
 }
 
 .nav-bar i {
-    background-color: white;
+    color: black;
     font-size: 16px;
     padding: 8px;
+    cursor: pointer;
 }
 
 .nav-bar i:hover {
-    background-color: red;
+    background-color: yellow;
 }
 
 hr {
@@ -72,8 +79,8 @@ hr {
 }
 
 .rules-container {
-    background-color: green;
     padding: 5px 10px;
+    font-size: 1em;
 }
 
 .rules-container ul {
@@ -82,4 +89,87 @@ hr {
 
 .hide {
     display: none;
+}
+
+.quiz-home-page h1 {
+    font-weight: bold;
+    font-size: 50px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 10px 0;
+    position: absolute;
+    top: 2em;
+    right: 0;
+    left: 0;
+
+}
+
+.quiz-home-page p {
+    text-align: center;
+    position: absolute;
+    margin: 10px auto;
+    top: 9em;
+    right: 0;
+    left: 0;
+    font-size:larger;
+}
+
+.home-btn-container {
+    
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+}
+
+.home-btn-container button {
+    display: block;
+    margin-bottom: 10px;
+    padding: 0.2em 1.4em;
+    margin: 0 0.5 0.5 0;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    font-family: lato;
+    font-weight: bold;
+    background-color: yellow;
+    cursor: pointer;
+}
+
+.button {
+    display: flexbox;
+    padding: 0.2em 1.4em;
+    margin: 0 0.5 0.5 0;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    font-family: lato;
+    font-weight: bold;
+    background-color: yellow;
+    cursor: pointer;
+}
+
+.question-container {
+    border: 1px solid black;
+    position: absolute;
+    top: 3em;
+    right: 1em;
+    left: 1em;
+    height: 60%;
+}
+
+.options-container {
+    position: absolute;
+    top: 20em;
+    right: 1em;
+    left: 1em;
+}
+
+.next-retry-container {
+    position: absolute;
+    top: 23em;
+    right: 1em;
+    left: 1em;
+}
+
+.retry-button, .next-button {
+    background-color: cyan;
 }
