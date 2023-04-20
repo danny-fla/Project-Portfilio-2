@@ -173,3 +173,42 @@ hr {
 .retry-button, .next-button {
     background-color: cyan;
 }
+
+.quiz-complete {
+    height: 50%;
+    width: 50%;
+}
+
+.quiz-complete h1 {
+    font-size: xx-large;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.results-container input, button {
+    margin: 5px 0;
+    padding: 5px 0 5px;
+    text-align: center;
+}
+
+.high-scores h1 {
+    font-size: xx-large;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 10px 0;
+    position: absolute;
+    top: 2em;
+    right: 0;
+    left: 0;
+}
+
+.high-scores {
+    height: 50%;
+    width: 50%;
+}

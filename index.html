@@ -21,7 +21,7 @@
         <div class="quiz-home-page" id="quiz-home-page">
             <div class="nav-bar">
                 <div><i class="fa-solid fa-house"></i></div>
-                <div><i class="fa-solid fa-volume-xmark hide"></i></div>
+                <div><i class="fa-solid fa-volume-xmark "></i></div>
                 <div><i class="fa-solid fa-volume-high"></i></div>
             </div>
 
@@ -41,7 +41,7 @@
         <div class="quiz-rules-page" id="quiz-rules-page">
             <div class="nav-bar">
                 <div><i class="fa-solid fa-house"></i></div>
-                <div><i class="fa-solid fa-volume-xmark hide"></i></div>
+                <div><i class="fa-solid fa-volume-xmark "></i></div>
                 <div><i class="fa-solid fa-volume-high"></i></div>
             </div>
             <h2>How To Play:</h2>
@@ -62,13 +62,13 @@
 
     </section>
     <!--Quiz Page -->
-    <section class="quiz-container ">
+    <section class="quiz-container hide">
         <div class="quiz-game-page" id="quiz-game-page">
             <div class="nav-bar">
                 <div><i class="fa-solid fa-house"></i></div>
                 <div><i class="fa-solid fa-stopwatch"></i></div>
                 <div><i class="fa-solid fa-question"></i></div>
-                <div><i class="fa-solid fa-volume-xmark hide"></i></div>
+                <div><i class="fa-solid fa-volume-xmark "></i></div>
                 <div><i class="fa-solid fa-volume-high"></i></div>
             </div>
             <div class="question-container" id="question-container">
@@ -94,16 +94,15 @@
 
     <section class="quiz-complete hide" id="quiz-complete">
         <div class="nav-bar">
-            <div><i class="fa-solid fa-volume-xmark hide"></i></div>
+            <div><i class="fa-solid fa-volume-xmark "></i></div>
             <div><i class="fa-solid fa-volume-high"></i></div>
         </div>
         <div>
             <h1>Picture This!</h1>
         </div>
-        <hr>
         <p class="user-score">Your total score is <span>user-score</span></p>
         <div class="results-container">
-            <input type="text" name="username" id="username" placeholder="username">
+            <input type="text" name="username" id="username" placeholder="username" required>
             <button aria-label="Enter Username" class="button enter-username-btn">Enter Username</button>
             <button aria-label="Home" class="button home-button">Home</button>
         </div>
@@ -111,15 +110,14 @@
     <!--High Scores Page-->
 
 
-    <section class="high-scores hide" id="high-scores">
+    <section class="high-scores " id="high-scores">
         <div class="nav-bar">
-            <div><i class="fa-solid fa-volume-xmark hide"></i></div>
+            <div><i class="fa-solid fa-volume-xmark "></i></div>
             <div><i class="fa-solid fa-volume-high"></i></div>
         </div>
         <div>
-            <h1>Picture This!</h1>
+            <h1>High Scores</h1>
         </div>
-        <br>
         <div>
             <ul id="quizzers-scores"></ul>
         </div>
