@@ -75,3 +75,40 @@ let nextRetryBox = document.querySelector('#next-retry-container');
 let quizEndBox = document.querySelector('#quiz-complete');
 let resultsBox = document.querySelector('#results-container');
 let highScoresBox = document.querySelector('#high-scores');
+
+// Buttons
+
+let  btn = document.getElementsByClassName('button');
+let  quizStartBtn = document.getElementsByClassName('begin-quiz-button')[0];
+let  highScoresBtn = document.getElementsByClassName('high-score-button')[0];
+let  rulesBtn = document.getElementsByClassName('rules-button')[0];
+let  returnHomeBtn = document.getElementsByClassName('home-button')[0];
+let  optionBtn = document.getElementsByClassName('option-btn')[0];
+let  optionOneBtn = document.getElementsByClassName('option-1-btn')[0];
+let  optionTwoBtn = document.getElementsByClassName('option-2-btn')[0];
+let  optionThreeBtn = document.getElementsByClassName('option-3-btn')[0];
+let  optionFourBtn = document.getElementsByClassName('option-4-btn')[0];
+let  resetQuizBtn = document.getElementsByClassName('retry-button')[0];
+let  submitUsernameBtn= document.getElementsByClassName('enter-username-btn')[0];
+
+
+quizStartBtn.addEventListener('click', ()=> {
+    homeBox.classList.add('hide');
+    quizBox.classList.remove('hide');
+})
+
+highScoresBtn.addEventListener('click', ()=> {
+    homeBox.classList.add('hide');
+    rulesBox.classList.remove('hide');
+})
+
+rulesBtn.addEventListener('click', ()=> {
+    homeBox.classList.add('hide');
+    rulesBox.classList.remove('hide');
+})
+
+highScoresBtn.addEventListener('click', ()=> {
+    homeBox.classList.add('hide');
+    rulesBox.classList.add('hide');
+    highScoresBox.classList.remove('hide');
+})
