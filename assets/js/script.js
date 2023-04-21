@@ -60,3 +60,18 @@ const questions = [
     4: "Newcastle",
     answer: "London",
 }]
+
+// Global variables
+
+
+// Containers 
+
+let homeBox = document.querySelector('#home-container');
+let rulesBox = document.querySelector('#rules-container');
+let quizBox = document.querySelector('#quiz-container');
+let questionBox = document.querySelector('#question-container');
+let optionsBox = document.querySelector('#options-container');
+let nextRetryBox = document.querySelector('#next-retry-container');
+let quizEndBox = document.querySelector('#quiz-complete');
+let resultsBox = document.querySelector('#results-container');
+let highScoresBox = document.querySelector('#high-scores');
