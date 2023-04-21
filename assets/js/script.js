@@ -1,69 +1,60 @@
 const questions = [
-{
-    1: "Madrid",
-    2: "Valencia",
-    3: "Barcelona",
-    4: "Sevilla",
-    answer: "Barcelona",
-}, {
-    1: "Dublin",
-    2: "Liverpool",
-    3: "Belfast",
-    4: "Cardiff",
-    answer: "Dublin",
-}, {
-    1: "Venice",
-    2: "Rome",
-    3: "Milan",
-    4: "Turin",
-    answer: "Rome",
-}, {
-    1: "Thailand",
-    2: "Cambodia",
-    3: "Malaysia",
-    4: "Vietnam",
-    answer: "Vietnam",
-}, {
-    1: "San Francisco",
-    2: "San Antonio",
-    3: "Seattle",
-    4: "New York",
-    answer: "San Francisco",
-}, {
-    1: "Bolivia",
-    2: "Brazil",
-    3: "Argentina",
-    4: "Mexico",
-    answer: "Brazil",
-}, {
-    1: "Spain",
-    2: "Germany",
-    3: "Italy",
-    4: "France",
-    answer: "France",
-}, {
-    1: "Spain",
-    2: "France",
-    3: "Germany",
-    4: "Italy",
-    answer: "Spain",
-}, {
-    1: "South Korea",
-    2: "China",
-    3: "Japan (Ushiku Daibutsu)",
-    4: "India",
-    answer: "Japan",
-}, {
-    1: "London",
-    2: "Birmingham",
-    3: "Manchester",
-    4: "Newcastle",
-    answer: "London",
-}]
+    {
+        question: "assets/images/sagrada-familia.webp",
+        options: ["Madrid", "Valencia", "Barcelona", "Sevilla"],
+        answer: "Barcelona"
+    },
+    {
+        question:"",
+        options: ["Dublin", "Liverpool", "Belfast", "Cardiff"],
+        answer: "Dublin"
+    },
+    {
+        question:"",
+        options: ["Venice", "Rome", "Milan", "Turin"],
+        answer: "Rome"
+    },
+    {
+        question:"",
+        options: ["Thailand", "Cambodia", "Malaysia", "Vietnam"],
+        answer: "Vietnam"
+    },
+    {
+        question:"",
+        options: ["San Francisco", "San Antonio", "Seattle","New York"],
+        answer: "San Francisco"
+    },
+    {
+        question:"",
+        options: ["Bolivia", "Brazil", "Argentina", "Mexico"],
+        answer: "Brazil"
+    },
+    {
+        question:"",
+        options: ["Spain", "Germany", "Italy", "France"],
+        answer: "France"
+    },
+    {
+        question:"",
+        options: ["Spain", "France",  "Germany", "Italy"],
+        answer: "Spain"
+    },
+    {
+        question:"",
+        options: ["South Korea", "China", "Japan (Ushiku Daibutsu)", "India"],
+        answer: "Japan"
+    },
+    {
+        question:"",
+        options: ["London", "Birmingham", "Manchester", "Newcastle"],
+        answer: "London"
+    },
+]
+
 
 // Global variables
-
-
+let score = 0;
+let timer = document.querySelector('#timer');
 // Containers 
 
 let homeBox = document.querySelector('#home-container');
@@ -92,6 +83,8 @@ let  resetQuizBtn = document.getElementsByClassName('retry-button')[0];
 let  submitUsernameBtn= document.getElementsByClassName('enter-username-btn')[0];
 
 
+
+
 quizStartBtn.addEventListener('click', ()=> {
     homeBox.classList.add('hide');
     quizBox.classList.remove('hide');
@@ -112,3 +105,19 @@ highScoresBtn.addEventListener('click', ()=> {
     rulesBox.classList.add('hide');
     highScoresBox.classList.remove('hide');
 })
+
+returnHomeBtn.addEventListener('click', ()=> {
+    homeBox.classList.remove('hide');
+    rulesBox.classList.add('hide');
+    highScoresBox.classList.add('hide');
+})
+
+
+
+function generateNewQuestion() {
+ 
+}
+
+function chooseAnswer() {
+    
+}
