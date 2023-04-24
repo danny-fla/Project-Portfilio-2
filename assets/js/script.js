@@ -1,4 +1,4 @@
-const questions = [
+ const questions = [
     {
         question: "assets/images/sagrada-familia.webp",
         options: ["Madrid", "Valencia", "Barcelona", "Sevilla"],
@@ -54,19 +54,13 @@ const questions = [
 
 // Global variables
 let score = 0;
-let timer = document.querySelector('#timer');
+
+
 // Containers 
-
 let homeBox = document.querySelector('#home-container');
-let rulesBox = document.querySelector('#rules-container');
 let quizBox = document.querySelector('#quiz-container');
-let questionBox = document.querySelector('#question-container');
-let optionsBox = document.querySelector('#options-container');
-let nextRetryBox = document.querySelector('#next-retry-container');
-let quizEndBox = document.querySelector('#quiz-complete');
-let resultsBox = document.querySelector('#results-container');
+let rulesBox = document.querySelector('#rules-container');
 let highScoresBox = document.querySelector('#high-scores');
-
 // Buttons
 
 let  btn = document.getElementsByClassName('button');
@@ -82,17 +76,19 @@ let  optionFourBtn = document.getElementsByClassName('option-4-btn')[0];
 let  resetQuizBtn = document.getElementsByClassName('retry-button')[0];
 let  submitUsernameBtn= document.getElementsByClassName('enter-username-btn')[0];
 
+// DOM elements
+let correctUserAnswers = 0
+let questionSelector = [];
 
 
-
-quizStartBtn.addEventListener('click', ()=> {
+ quizStartBtn.addEventListener('click', ()=> {
     homeBox.classList.add('hide');
     quizBox.classList.remove('hide');
 })
 
 highScoresBtn.addEventListener('click', ()=> {
     homeBox.classList.add('hide');
-    rulesBox.classList.remove('hide');
+    highScoresBox.classList.remove('hide');
 })
 
 rulesBtn.addEventListener('click', ()=> {
@@ -100,24 +96,67 @@ rulesBtn.addEventListener('click', ()=> {
     rulesBox.classList.remove('hide');
 })
 
+returnHomeBtn.addEventListener('click', ()=> {
+    homeBox.classList.remove('hide');
+    rulesBox.classList.add('hide');
+    highScoresBox.classList.add('hide');
+}) 
+/**
 highScoresBtn.addEventListener('click', ()=> {
     homeBox.classList.add('hide');
     rulesBox.classList.add('hide');
     highScoresBox.classList.remove('hide');
 })
 
-returnHomeBtn.addEventListener('click', ()=> {
-    homeBox.classList.remove('hide');
-    rulesBox.classList.add('hide');
-    highScoresBox.classList.add('hide');
-})
 
 
+/** 
+let homeBox = document.querySelector('#home-container');
 
-function generateNewQuestion() {
+let quizBox = document.querySelector('#quiz-container');
+let questionBox = document.querySelector('#question-container');
+let optionsBox = document.querySelector('#options-container');
+let nextRetryBox = document.querySelector('#next-retry-container');
+let quizEndBox = document.querySelector('#quiz-complete');
+let resultsBox = document.querySelector('#results-container');
+
+
+let  imageQuestion = document.querySelector('#landmark');
+let  optionBtn = document.getElementsByClassName('option-btn')[0];
+let  optionOneBtn = document.getElementsByClassName('option-1-btn')[0];
+let  optionTwoBtn = document.getElementsByClassName('option-2-btn')[0];
+let  optionThreeBtn = document.getElementsByClassName('option-3-btn')[0];
+let  optionFourBtn = document.getElementsByClassName('option-4-btn')[0];
+
+let userScore = document.querySelector('.user-score');
+
+let userName = document.querySelector('#username');
+let questionSelector = [];
+let userProgress = 0;
+let correctUserAnswers = 0;
+let currentQuestion = {};
+
+let timeLeft;
+
+**/
+
+// Timer
+let secondsDisplay = document.querySelector('#seconds');
+let time = 15;
+let timerInterval;
+
+function startTimer() {
+    timerInterval = setInterval(updateTimer,1000);
+ }
+
+ function updateTimer() {
+    let seconds = time % 60;
+     secondsDisplay.textContent = ("0" + seconds).slice(-2);
+     time--;
+     if (time <0) {
+        clearInterval(timerInterval);
+        alert("Time up")
+     }
+ }
  
-}
-
-function chooseAnswer() {
-    
-}
+ quizStartBtn.addEventListener('click', startTimer);
