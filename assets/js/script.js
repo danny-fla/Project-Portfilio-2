@@ -68,7 +68,7 @@ let  quizStartBtn = document.getElementsByClassName('begin-quiz-button')[0];
 let  highScoresBtn = document.getElementsByClassName('high-score-button')[0];
 let  rulesBtn = document.getElementsByClassName('rules-button')[0];
 let  returnHomeBtn = document.getElementsByClassName('home-button')[0];
-let  optionBtn = document.getElementsByClassName('option-btn')[0];
+
 let  optionOneBtn = document.getElementsByClassName('option-1-btn')[0];
 let  optionTwoBtn = document.getElementsByClassName('option-2-btn')[0];
 let  optionThreeBtn = document.getElementsByClassName('option-3-btn')[0];
@@ -155,8 +155,18 @@ function startTimer() {
      time--;
      if (time <0) {
         clearInterval(timerInterval);
-        alert("Time up")
      }
  }
  
  quizStartBtn.addEventListener('click', startTimer);
+
+ // Options
+ let  optionBtns = document.querySelectorAll('.option-btn');
+
+ for (let i = 0; i < optionBtns.length; i++) {
+    optionBtns[i].addEventListener('click', () => {
+        let selectedAnswer = optionBtns[i].textContent;
+        console.log('selected Answer', selectedAnswer);
+        alert('selected answer');
+    })
+ }
