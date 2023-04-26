@@ -101,44 +101,7 @@ returnHomeBtn.addEventListener('click', ()=> {
     rulesBox.classList.add('hide');
     highScoresBox.classList.add('hide');
 }) 
-/**
-highScoresBtn.addEventListener('click', ()=> {
-    homeBox.classList.add('hide');
-    rulesBox.classList.add('hide');
-    highScoresBox.classList.remove('hide');
-})
 
-
-
-/** 
-let homeBox = document.querySelector('#home-container');
-
-let quizBox = document.querySelector('#quiz-container');
-let questionBox = document.querySelector('#question-container');
-let optionsBox = document.querySelector('#options-container');
-let nextRetryBox = document.querySelector('#next-retry-container');
-let quizEndBox = document.querySelector('#quiz-complete');
-let resultsBox = document.querySelector('#results-container');
-
-
-let  imageQuestion = document.querySelector('#landmark');
-let  optionBtn = document.getElementsByClassName('option-btn')[0];
-let  optionOneBtn = document.getElementsByClassName('option-1-btn')[0];
-let  optionTwoBtn = document.getElementsByClassName('option-2-btn')[0];
-let  optionThreeBtn = document.getElementsByClassName('option-3-btn')[0];
-let  optionFourBtn = document.getElementsByClassName('option-4-btn')[0];
-
-let userScore = document.querySelector('.user-score');
-
-let userName = document.querySelector('#username');
-let questionSelector = [];
-let userProgress = 0;
-let correctUserAnswers = 0;
-let currentQuestion = {};
-
-let timeLeft;
-
-**/
 
 // Timer
 let secondsDisplay = document.querySelector('#seconds');
@@ -169,4 +132,38 @@ function startTimer() {
         console.log('selected Answer', selectedAnswer);
         alert('selected answer');
     })
+ }
+
+ // Prevent user from seleecting multiple answers
+
+ function disableAnswerBtn() {
+    for (let i = 0; i < optionBtns.length; i++){
+        optionBtns.disabled [i]= true;
+    }  
+ }
+
+ // calculate answer
+
+ let userAnswers = [];
+
+ function checkAnswer() {
+    disableAnswerBtn();
+    let userSelection = this.innerText;
+    userAnswers.push(userSelection);
+
+    let correctAnswer = currentQuestion.answer;
+    if (userSelection === correctAnswer) {
+        this.classList.add('correct');
+        incrementScore();
+    } else {
+        this.classList.add('incorrect');
+    }
+
+    for (let i = 0; i < optionBtns.length; i++) {
+        optionBtns[i].addEventListener('click', () => {
+            let selectedAnswer = optionBtns[i].textContent;
+            console.log('selected Answer', selectedAnswer);
+            checkAnswer(currentQuestion, optionBtns[i]);
+        })
+    }
  }
