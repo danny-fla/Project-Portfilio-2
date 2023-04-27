@@ -1,54 +1,20 @@
- const questions = [{
-         question: "assets/images/sagrada-familia.webp",
-         options: ["Madrid", "Valencia", "Barcelona", "Sevilla"],
-         answer: "Barcelona"
-     },
-     {
-         question: "",
-         options: ["Dublin", "Liverpool", "Belfast", "Cardiff"],
-         answer: "Dublin"
-     },
-     {
-         question: "",
-         options: ["Venice", "Rome", "Milan", "Turin"],
-         answer: "Rome"
-     },
-     {
-         question: "",
-         options: ["Thailand", "Cambodia", "Malaysia", "Vietnam"],
-         answer: "Vietnam"
-     },
-     {
-         question: "",
-         options: ["San Francisco", "San Antonio", "Seattle", "New York"],
-         answer: "San Francisco"
-     },
-     {
-         question: "",
-         options: ["Bolivia", "Brazil", "Argentina", "Mexico"],
-         answer: "Brazil"
-     },
-     {
-         question: "",
-         options: ["Spain", "Germany", "Italy", "France"],
-         answer: "France"
-     },
-     {
-         question: "",
-         options: ["Spain", "France", "Germany", "Italy"],
-         answer: "Spain"
-     },
-     {
-         question: "",
-         options: ["South Korea", "China", "Japan (Ushiku Daibutsu)", "India"],
-         answer: "Japan"
-     },
-     {
-         question: "",
-         options: ["London", "Birmingham", "Manchester", "Newcastle"],
-         answer: "London"
-     },
- ]
+let quizQuestions = [
+    {
+        question: "what's the captiol of France?",
+        options: ["paris", "madrid", "london", "dublin"],
+        answer: "paris"
+    }, 
+    {
+        question: "what's the captiol of ireland?",
+        options: ["paris", "madrid", "london", "dublin"],
+        answer: "dublin"
+    },
+    {
+        question: "what's the captiol of england?",
+        options: ["paris", "madrid", "london", "dublin"],
+        answer: "london"
+    }
+];
 
 
  // Global variables
@@ -64,6 +30,11 @@
 
  let btn = document.getElementsByClassName('button');
  let quizStartBtn = document.getElementsByClassName('begin-quiz-button')[0];
+ let quizImage = document.querySelector('#landmark');
+ quizStartBtn.addEventListener('click', function(){
+    quizImage.src="assets/images/sagrada-familia.webp"
+ })
+
  let highScoresBtn = document.getElementsByClassName('high-score-button')[0];
  let rulesBtn = document.getElementsByClassName('rules-button')[0];
  let returnHomeBtn = document.getElementsByClassName('home-button')[0];
@@ -78,6 +49,8 @@
  // DOM elements
  let correctUserAnswers = 0
  let questionSelector = [];
+ let currentQuestionIndex = Math.floor(Math.random() * quizQuestions.length);
+ let currentQuestion = quizQuestions[currentQuestionIndex];
 
 
  quizStartBtn.addEventListener('click', () => {
@@ -103,7 +76,7 @@
 
 
  // Timer
- let secondsDisplay = document.querySelector('#seconds');
+ const secondsDisplay = document.querySelector('#seconds');
  let time = 15;
  let timerInterval;
 
@@ -127,12 +100,13 @@
 
  for (let i = 0; i < optionBtns.length; i++) {
      optionBtns[i].addEventListener('click', () => {
-         let selectedAnswer = optionBtns[i].textContent;
          console.log('selected Answer', selectedAnswer);
      })
  }
 
- // Prevent user from seleecting multiple answers
+ 
+
+ // Prevent user from selecting multiple answers and selecting when the timer runs out
 
  function disableAnswerBtn() {
      for (let i = 0; i < optionBtns.length; i++) {
@@ -144,10 +118,10 @@
 
  let userAnswers = [];
 
-  questions.forEach((question, index) => {
+  quizQuestions.forEach((question, index) => {
      for (let i = 0; i < question.options.length; i++) {
         optionBtns[i].textContent = question.options[i];
-         optionBtns[i].addEventListener('click', () => {
+        optionBtns[i].addEventListener('click', () => {
              checkAnswer(question, optionBtns[i]);
          });
      }
@@ -165,12 +139,8 @@
      } else {
          answerBtn.classList.add('incorrect');
      }
-
-     for (let i = 0; i < optionBtns.length; i++) {
-         optionBtns[i].addEventListener('click', () => {
-             let selectedAnswer = optionBtns[i].textContent;
-             console.log('selected Answer', selectedAnswer);
-             checkAnswer(currentQuestion, optionBtns[i]);
-         })
      }
- }
+ 
+
+// generate question
+
