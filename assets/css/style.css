@@ -223,3 +223,13 @@ hr {
     height: 50%;
     width: 50%;
 }
+
+.correct {
+    background-color: green;
+    color: white;
+}
+
+.incorrect {
+    background-color: red;
+    color: white;
+}
