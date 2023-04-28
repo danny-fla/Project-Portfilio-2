@@ -61,6 +61,8 @@ let quizQuestions = [
  let optionFourBtn = document.getElementsByClassName('option-4-btn')[0];
  let resetQuizBtn = document.getElementsByClassName('retry-button')[0];
  let submitUsernameBtn = document.getElementsByClassName('enter-username-btn')[0];
+ let nextQuestionBtn = document.querySelector('.next-button');
+ 
 
  // DOM elements
  let correctUserAnswers = 0
@@ -148,7 +150,9 @@ let quizQuestions = [
      let userSelection = answerBtn.innerText;
      userAnswers.push(userSelection);
 
-     let correctAnswer = currentQuestion.answer;
+     correctOption = currentQuestion.options.find(option => option.isCorrect);
+     let correctAnswer = correctOption.text;
+     
      if (userSelection === correctAnswer) {
          answerBtn.classList.add('correct');
          incrementScore();
@@ -171,3 +175,11 @@ function generateQuestion(){
         optionBtns[i].classList.remove('correct', 'incorrect');
      }
     }
+
+    // next question
+
+
+ nextQuestionBtn.addEventListener('click', function() {
+    generateQuestion();
+    startTimer();
+})
