@@ -1,18 +1,30 @@
 let quizQuestions = [
     {
-        question: "what's the captiol of France?",
-        options: ["paris", "madrid", "london", "dublin"],
-        answer: "paris"
+        imageSrc: "assets/images/sagrada-familia.webp",
+        options: [
+            {text: 'Barcelona1', isCorrect: true},
+            {text: 'Madrid', isCorrect: false},
+            {text: 'Dublin', isCorrect: false},
+            {text: 'London', isCorrect: false}
+        ]
     }, 
     {
-        question: "what's the captiol of ireland?",
-        options: ["paris", "madrid", "london", "dublin"],
-        answer: "dublin"
+        imageSrc: "assets/images/dublin-castle.webp",
+        options: [
+            {text: 'Barcelona2', isCorrect: false},
+            {text: 'Madrid', isCorrect: false},
+            {text: 'Dublin', isCorrect: true},
+            {text: 'London', isCorrect: false}
+        ]
     },
     {
-        question: "what's the captiol of england?",
-        options: ["paris", "madrid", "london", "dublin"],
-        answer: "london"
+        imageSrc: "assets/images/london-bridge.jpg",
+        options: [
+            {text: 'Barcelona3', isCorrect: false},
+            {text: 'Madrid', isCorrect: false},
+            {text: 'Dublin', isCorrect: false},
+            {text: 'London', isCorrect: true}
+        ]
     }
 ];
 
@@ -30,9 +42,13 @@ let quizQuestions = [
 
  let btn = document.getElementsByClassName('button');
  let quizStartBtn = document.getElementsByClassName('begin-quiz-button')[0];
+ quizStartBtn.addEventListener('click', function() {
+    generateQuestion();
+    startTimer()
+ });
  let quizImage = document.querySelector('#landmark');
  quizStartBtn.addEventListener('click', function(){
-    quizImage.src="assets/images/sagrada-familia.webp"
+   quizImage.src = quizQuestions[i].imageSrc;
  })
 
  let highScoresBtn = document.getElementsByClassName('high-score-button')[0];
@@ -144,3 +160,14 @@ let quizQuestions = [
 
 // generate question
 
+function generateQuestion(){
+     currentQuestionIndex = Math.floor(Math.random()*quizQuestions.length);
+     currentQuestion = quizQuestions[currentQuestionIndex];
+     quizImage.src = currentQuestion.imageSrc;
+     
+     for (let i = 0; i < optionBtns.length; i++){
+        optionBtns[i].textContent = currentQuestion.options[i].text;
+        optionBtns[i].disabled = false;
+        optionBtns[i].classList.remove('correct', 'incorrect');
+     }
+    }
