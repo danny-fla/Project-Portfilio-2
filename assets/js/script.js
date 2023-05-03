@@ -48,7 +48,7 @@ let quizQuestions = [
  });
  let quizImage = document.querySelector('#landmark');
  quizStartBtn.addEventListener('click', function(){
-   quizImage.src = quizQuestions[i].imageSrc;
+   quizImage.src = quizQuestions[0].imageSrc;
  })
 
  let highScoresBtn = document.getElementsByClassName('high-score-button')[0];
@@ -95,20 +95,29 @@ let quizQuestions = [
 
  // Timer
  const secondsDisplay = document.querySelector('#seconds');
- let time = 15;
+ let time = 5;
  let timerInterval;
 
  function startTimer() {
      timerInterval = setInterval(updateTimer, 1000);
  }
 
+
+
  function updateTimer() {
-     let seconds = time % 60;
-     secondsDisplay.textContent = ("0" + seconds).slice(-2);
-     time--;
-     if (time < 0) {
-         clearInterval(timerInterval);
+
+     if( secondsDisplay.textContent > 0){
+     secondsDisplay.textContent = secondsDisplay.innerText - 1
+     clearInterval(timerInterval);
+
+     }else{
+          optionBtns.forEach(btn => {
+            btn.disabled = true
+            btn.style.backgroundColor = "red"
+          
+          })
      }
+
  }
 
  quizStartBtn.addEventListener('click', startTimer);
@@ -118,7 +127,7 @@ let quizQuestions = [
 
  for (let i = 0; i < optionBtns.length; i++) {
      optionBtns[i].addEventListener('click', () => {
-         console.log('selected Answer', selectedAnswer);
+         console.log('selected Answer', userSelection);
      })
  }
 
@@ -142,23 +151,25 @@ let quizQuestions = [
         optionBtns[i].addEventListener('click', () => {
              checkAnswer(question, optionBtns[i]);
          });
+
      }
  }); 
 
  function checkAnswer(currentQuestion, answerBtn) {
-     disableAnswerBtn();
-     let userSelection = answerBtn.innerText;
-     userAnswers.push(userSelection);
+      disableAnswerBtn();
+      let userSelection = answerBtn.innerText;
+      userAnswers.push(userSelection);
 
-     correctOption = currentQuestion.options.find(option => option.isCorrect);
-     let correctAnswer = correctOption.text;
-     
-     if (userSelection === correctAnswer) {
-         answerBtn.classList.add('correct');
-         incrementScore();
-     } else {
-         answerBtn.classList.add('incorrect');
-     }
+      correctOption = currentQuestion.options.find(option => option.isCorrect);
+      let correctAnswer = correctOption.text;
+     console.log(currentQuestion, "<===correctAnswer")
+    // console.log(userSelection, "<=== userSelection")
+    //  if (userSelection === correctAnswer) {
+    //      answerBtn.classList.add('correct');
+    //      incrementScore();
+    //  } else {
+    //      answerBtn.classList.add('incorrect');
+    //  }
      }
  
 
@@ -182,4 +193,17 @@ function generateQuestion(){
  nextQuestionBtn.addEventListener('click', function() {
     generateQuestion();
     startTimer();
+    counter++;
+    questionCounter.innerText = counter;
+    optionBtns.forEach(btn => {
+         btn.disabled = false
+         btn.style.backgroundColor = "white"
+
+       })
+ secondsDisplay.textContent = secondsDisplay.innerText = 5
 })
+
+// Question counter
+
+let questionCounter = document.querySelector('#question-counter');
+let counter = 1;
