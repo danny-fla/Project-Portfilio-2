@@ -233,3 +233,160 @@ hr {
     background-color: red;
     color: white;
 }
+
+/* media queries */
+
+@media screen and (max-width:1200px){
+    body {
+        font-size: medium;
+    }
+
+    header {
+        display: block;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .home-container,
+    .rules-container,
+    .quiz-container,
+    .quiz-complete,
+    .high-scores {
+        width: 80%;
+    }
+
+    .nav-bar {
+        font-size: large;
+    }
+
+    .quiz-home-page h1 {
+        font-size: 40px;
+    }
+
+    .quiz-home-page p {
+        font-size: large;
+    }
+
+    .home-btn-container {
+        top: 2em;
+        height: 50%;
+    }
+
+    .options-container {
+        top: 15em;
+    }
+
+    .next-retry-container {
+        top: 18em;
+    }
+
+    .high-scores {
+        height: 60%;
+    }
+}
+
+@media screen and (max-width:950px){
+    body {
+        font-size: medium;
+    }
+
+    header {
+        display: block;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .home-container,
+    .rules-container,
+    .quiz-container,
+    .quiz-complete,
+    .high-scores {
+        width: 80%;
+    }
+
+    .nav-bar {
+        font-size: large;
+    }
+
+    .quiz-home-page h1 {
+        font-size: 40px;
+    }
+
+    .quiz-home-page p {
+        font-size: large;
+    }
+
+    .home-btn-container {
+        top: 2em;
+        height: 50%;
+    }
+
+    .options-container {
+        top: 15em;
+    }
+
+    .next-retry-container {
+        top: 18em;
+    }
+
+    .high-scores {
+        height: 60%;
+    }
+
+}
+
+@media screen and (max-width:400px){
+    body {
+        font-size: medium;
+    }
+
+    header {
+        display: block;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .home-container,
+    .rules-container,
+    .quiz-container,
+    .quiz-complete,
+    .high-scores {
+        width: 80%;
+    }
+
+    .nav-bar {
+        font-size: large;
+    }
+
+    .quiz-home-page h1 {
+        font-size: 40px;
+    }
+
+    .quiz-home-page p {
+        font-size: large;
+    }
+
+    .home-btn-container {
+        top: 2em;
+        height: 50%;
+    }
+
+    .options-container {
+        top: 15em;
+    }
+
+    .next-retry-container {
+        top: 18em;
+    }
+
+    .high-scores {
+        height: 60%;
+    }
+
+}

@@ -28,9 +28,9 @@
             <h1>Welcome to Picture This!</h1>
             <p>All you have to do is match the landmark to the correct option</p>
             <div class="home-btn-container">
-                <button class="button begin-quiz-button">Let's Go!</button>
-                <button class="button high-score-button">High Score</button>
-                <button class="button rules-button">Rules</button>
+                <button class="button begin-quiz-button"  onclick="beginQuiz()">Let's Go!</button>
+                <button class="button high-score-button"  onclick="showQuizHighScores()">High Score</button>
+                <button class="button rules-button" onclick="showQuizRules()">Rules</button>
             </div>
         </div>
 
@@ -101,7 +101,7 @@
         <div>
             <h1>Picture This!</h1>
         </div>
-        <p class="user-score">Your total score is <span>user-score</span></p>
+        <p class="user-score">Your total score is <span id="user-score">0</span></p>
         <div class="results-container" id="results-container">
             <input type="text" name="username" id="username" placeholder="username" required>
             <button aria-label="Enter Username" class="button enter-username-btn">Enter Username</button>
