@@ -237,6 +237,11 @@ hr {
 /* media queries */
 
 @media screen and (max-width:1200px){
+    html {
+        background: url(/assets/images/background.jpg) center;
+        background-size:inherit;
+    }
+    
     body {
         font-size: medium;
     }
@@ -339,54 +344,39 @@ hr {
 
 }
 
-@media screen and (max-width:400px){
+@media screen and (max-width: 480px) {
     body {
-        font-size: medium;
-    }
-
-    header {
-        display: block;
-    }
-
-    header h1 {
-        font-size: 2.5em;
-    }
-
-    .home-container,
-    .rules-container,
-    .quiz-container,
-    .quiz-complete,
-    .high-scores {
-        width: 80%;
+        font-size: large;
+        padding: 10px;
     }
 
     .nav-bar {
-        font-size: large;
+        
+        padding: 5px;
     }
 
-    .quiz-home-page h1 {
-        font-size: 40px;
-    }
-
-    .quiz-home-page p {
-        font-size: large;
+    .nav-bar i {
+        margin: 5px;
     }
 
     .home-btn-container {
-        top: 2em;
-        height: 50%;
+        margin-top: 40px;
     }
 
-    .options-container {
-        top: 15em;
+    .home-btn-container button {
+        margin-bottom: 5px;
+        padding: 0.5em 1.2em;
     }
 
-    .next-retry-container {
-        top: 18em;
+    .quiz-home-page p {
+        display: none;
     }
-
-    .high-scores {
-        height: 60%;
+    .question-container {
+        /* top: 5em;
+        height: auto; */
     }
-
+    .rules-container {
+        padding: 5px 5px;
+        font-size: large;
+    }
 }

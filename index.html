@@ -49,15 +49,13 @@
             <h3>Alright then, come and have a go!</h3>
             <p>The rules are easy.</p>
             <ul>
-                <li>To begin the quiz select Let's Go! on the Home Page</li>
-                <li>You will then need to create a username and select Begin</li>
-                <li>Once the quiz starts, you must match the landmark shown to the correct option below</li>
+                <li>To begin select Let's Go! on the Home Page</li>
+                <li>Once the quiz starts match the landmark shown to the correct option below</li>
                 <li>Each correct answer will result in 10 points</li>
-                <li>But don't delay - there will be a 15 second timer for each question!</li>
+                <li>There is a 15 second timer for each question!</li>
             </ul>
-            <p>Think you're ready? Back to the Home Page to begin</p>
             <p>Good Luck!</p>
-            <button aria-label="Home" class="button home-button">Home</button>
+            <button aria-label="Home" class="button home-button" onclick="closeQuizRules()">Home</button>
         </div>
 
     </section>
@@ -67,7 +65,7 @@
             <div class="nav-bar">
                 <div><i class="fa-solid fa-house"></i></div>
                 <div class="timer"><i class="fa-solid fa-stopwatch"></i>
-                <span id="seconds">5</span></div>
+                <span id="seconds">10</span></div>
                 <div id="current-question"><i class="fa-solid fa-question"></i><span id="question-counter">1</span></div>
                 <div><i class="fa-solid fa-volume-xmark "></i></div>
                 <div><i class="fa-solid fa-volume-high"></i></div>
@@ -101,11 +99,11 @@
         <div>
             <h1>Picture This!</h1>
         </div>
-        <p class="user-score">Your total score is <span id="user-score">0</span></p>
+        <p id="user-score">Your total score is <span id="user-total-score">0</span></p>
         <div class="results-container" id="results-container">
             <input type="text" name="username" id="username" placeholder="username" required>
-            <button aria-label="Enter Username" class="button enter-username-btn">Enter Username</button>
-            <button aria-label="Home" class="button home-button">Home</button>
+            <button aria-label="Enter Username" class="button enter-username-btn" onclick="showQuizHighScores()">Enter Username</button>
+            <button aria-label="Home" class="button home-button" onclick="closeGameOverBox()">Home</button>
         </div>
     </section>
     <!--High Scores Page-->
@@ -119,10 +117,31 @@
         <div>
             <h1>High Scores</h1>
         </div>
-        <div>
-            <ul id="quizzers-scores"></ul>
+        <div id="leaderboard">
+            <table id="leaderboard-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>John</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td>Dan</td>
+                    <td>20</td>
+                  </tr>
+                  <tr>
+                    <td>Jane</td>
+                    <td>15</td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
-        <button aria-label="Home" class="button home-button">Home</button>
+        <button aria-label="Home" class="button home-button" onclick="closeQuizHighScores()">Home</button>
     </section>
 </body>
 
