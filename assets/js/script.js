@@ -1,5 +1,5 @@
-let quizQuestions = [{
-        imageSrc: "assets/images/sagrada-familia.webp",
+let quizQuestions = [{   
+    imageSrc: "assets/images/sagrada-familia.webp",
         options: [{
                 text: 'Barcelona1',
                 isCorrect: true
@@ -81,18 +81,20 @@ let quizQuestions = [{
 ];
 
 
+
+
 // Global variables
 let score = 0;
 let userTotalScore = document.querySelector('#user-total-score');
 // variables
 let correctUserAnswers = 0;
-let availableQuestions = [];
+let availableQuestions = quizQuestions;
 let questionSelector = [];
 let userAnswers = [];
 let questionsAnswered = 0;
 
 const maxQuestions = 3;
-let questionsAsked = 0;
+let questionsAsked = [];
 
 let currentQuestion = {};
 let questionCounter = document.querySelector('#question-counter');
@@ -164,6 +166,7 @@ function closeQuizRules() {
 
 function gameOver(){
     username.value = '';
+    restartGame();
 }
 
 function closeGameOverBox(){
@@ -188,6 +191,7 @@ function beginQuiz() {
 function quizCounter(){
     counter++;
     questionCounter.innerText = counter;
+    resetTimer();
     
     
     if (counter > 4) {
@@ -205,20 +209,14 @@ optionBtns.forEach(function (button) {
 });
 
 function generateNewQuestion() {
-    // gameProgress++;
-    // quizCounter();
     
-    // if (quizCounter > 4) {
-    //     quizBox.classList.add('hide');
-    //     gameOverBox.classList.remove('hide');
-    //     console.log('gameover');
-    //     return;
-    // }
+    if(quizQuestions.length - availableQuestions.length <= 3){
+        
     let shuffleQuestions = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = shuffleQuestions;
     let question = availableQuestions[currentQuestion];
     quizImage.src = question.imageSrc;
-
+    availableQuestions.splice(currentQuestion, 1);
     for (let i = 0; i < optionBtns.length; i++) {
         optionBtns[i].textContent = '';
     }
@@ -227,6 +225,8 @@ function generateNewQuestion() {
         optionBtns[i].textContent = question.options[i].text;
         optionBtns[i].dataset.correct = question.options[i].isCorrect;
     }
+    }
+
 
 }
 
@@ -248,13 +248,7 @@ function calculateAnswer(event) {
         button.disabled = true;
     });
 
-    // setTimeout(() => {
-    //     optionBtns.forEach((button) => {
-    //         button.disabled = false;
-    //         button.classList.remove("correct", "incorrect");
-    //     });
-    //     generateNewQuestion();
-    // }, 2000);
+
 }
 
 function nextQuestion() {
@@ -266,7 +260,29 @@ function nextQuestion() {
     console.log('next btn')
     quizCounter();
 
-    // if(quizImage )
+    // if (quizQuestions.some(question => question.imageSrc === currentQuestion.imageSrc)) {
+    //     // Display question image and options
+    //     console.log('begining of if statement');
+    //   quizImage.src = currentQuestion.imageSrc;
+    //   console.log('display image');
+    //   optionBtns.forEach((btn, index) => {
+    //     btn.innerHTML = currentQuestion.options[index].text;
+    //     btn.dataset.correct = currentQuestion.options[index].isCorrect;
+    //   });
+    //     // Remove question from available questions
+    //   availableQuestions.splice(questionIndex, 1);
+    //   console.log('remove image from array')
+    // } else {
+    //   // Show a message that the question is not available
+    //   console.log('show message')
+    //   quizImage.src = "";
+    //   optionBtns.forEach((btn) => {
+    //     btn.innerHTML = "";
+    //     btn.dataset.correct = false;
+    //   });
+    //   alert("Question not available");
+    // }
+
 }
 
 function resetOptionBtns() {
@@ -285,6 +301,7 @@ function restartGame() {
     secondsDisplay.textContent = 10;
     clearInterval(timerInterval);
     console.log('restartquiz')
+    
     
 }
 
@@ -317,50 +334,8 @@ function countdown() {
 function resetTimer() {
     clearInterval(timerInterval);
 }
-//function incrementScore()
-
-let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-let highScoresTable = document.querySelector('#quizzers-scores');
-
-function saveUserScore(){
-    gameOverBox.classList.add('hide');
-    highScoresBox.classList.remove('hide');
-}
 
 
 
-let highScore = {
-    score: userTotalScore.textContent,
-    name: username.value
-};
-
-highScores.push(highScore);
-highScores.sort((a,b) => b.score - a.score);
-//highScores.splice(5);
-
-localStorage.setItem('highScores', JSON.stringify(highScores));
-
-// highScoresTable.textContent = highScores.map(highScores => {
-    // return `<table>
-    //             <tr>
-    //             <th>Username</th>
-    //             <th>Score</th>
-    //             </tr>
-    //             <tr>
-    //             <td>${highScores.name}</td>
-    //             <td>${highScores.score}</td>
-    //             </tr>
-    //             </table>`;
-//})
-//.join('');
-console.log('openhighscores');
 
 
-function addPlayerToLeaderboard(playerName, score) {
-    let newRow = document.createElement('tr');
-    newRow.textContent = `
-    <td>${playerName}</td>
-    <td>${score}</td>
-    `;
-    leaderboardTable.appendChild(newRow);
-}
