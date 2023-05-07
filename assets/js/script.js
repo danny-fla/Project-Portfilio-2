@@ -85,7 +85,6 @@ let quizQuestions = [{
 
 // Global variables
 let score = 0;
-let userTotalScore = document.querySelector('#user-total-score');
 // variables
 let correctUserAnswers = 0;
 let availableQuestions = quizQuestions;
@@ -178,14 +177,23 @@ function beginQuiz() {
     homeBox.classList.add('hide');
     quizBox.classList.remove('hide');
     console.log('beginquiz');
-    // gameProgress++
     correctUserAnswers = 0;
     availableQuestions = [...quizQuestions];
     secondsDisplay.textContent;
-    userScore.textContent = 0;
+    resetScore();
     generateNewQuestion();
     resetTimer();
     startTimer();
+}
+
+function quizComplete(){
+    closeGameOverBox();
+    resetOptionBtns();
+    resetCounter();
+    secondsDisplay.textContent = 10;
+    clearInterval(timerInterval);
+    resetScore();
+    console.log('quiz complete')  
 }
 
 function quizCounter(){
@@ -200,6 +208,18 @@ function quizCounter(){
             console.log('gameover');
             return;
         }
+}
+
+function resetCounter() {
+    counter = 1;
+    questionCounter.innerText = counter;
+    console.log('counterreset')
+}
+
+function resetScore(){
+    score = 0;
+    userScore.textContent = score;
+    console.log('userscorereset');
 }
 
 // attaches event listener to each option button and envokes check answer function when clicked
@@ -260,30 +280,8 @@ function nextQuestion() {
     console.log('next btn')
     quizCounter();
 
-    // if (quizQuestions.some(question => question.imageSrc === currentQuestion.imageSrc)) {
-    //     // Display question image and options
-    //     console.log('begining of if statement');
-    //   quizImage.src = currentQuestion.imageSrc;
-    //   console.log('display image');
-    //   optionBtns.forEach((btn, index) => {
-    //     btn.innerHTML = currentQuestion.options[index].text;
-    //     btn.dataset.correct = currentQuestion.options[index].isCorrect;
-    //   });
-    //     // Remove question from available questions
-    //   availableQuestions.splice(questionIndex, 1);
-    //   console.log('remove image from array')
-    // } else {
-    //   // Show a message that the question is not available
-    //   console.log('show message')
-    //   quizImage.src = "";
-    //   optionBtns.forEach((btn) => {
-    //     btn.innerHTML = "";
-    //     btn.dataset.correct = false;
-    //   });
-    //   alert("Question not available");
-    // }
-
 }
+
 
 function resetOptionBtns() {
     optionBtns.forEach(button => {
@@ -294,15 +292,13 @@ function resetOptionBtns() {
 }
 
 function restartGame() {
-    // gameProgress = 0;
     beginQuiz();
     resetOptionBtns();
     startTimer();
+    resetCounter();
     secondsDisplay.textContent = 10;
     clearInterval(timerInterval);
-    console.log('restartquiz')
-    
-    
+    console.log('restartquiz')  
 }
 
 function disableAnswerBtn() {

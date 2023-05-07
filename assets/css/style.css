@@ -199,6 +199,9 @@ hr {
     flex-direction: column;
 }
 
+#user-score{
+    color: red;
+}
 
 .results-container input, button {
     margin: 5px 0;
