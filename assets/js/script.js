@@ -1,5 +1,5 @@
-let quizQuestions = [{   
-    imageSrc: "assets/images/sagrada-familia.webp",
+let quizQuestions = [{
+        imageSrc: "assets/images/sagrada-familia.webp",
         options: [{
                 text: 'Barcelona1',
                 isCorrect: true
@@ -77,7 +77,67 @@ let quizQuestions = [{
                 isCorrect: false
             }
         ]
-    }
+    },
+    {
+        imageSrc: "assets/images/brazil.jpg",
+        options: [{
+                text: 'Barcelona5',
+                isCorrect: false
+            },
+            {
+                text: 'Madrid',
+                isCorrect: false
+            },
+            {
+                text: 'Brazil',
+                isCorrect: true
+            },
+            {
+                text: 'London',
+                isCorrect: false
+            }
+        ]
+    },
+    {
+        imageSrc: "assets/images/italy-small.jpg",
+        options: [{
+                text: 'Italy',
+                isCorrect: true
+            },
+            {
+                text: 'Madrid',
+                isCorrect: false
+            },
+            {
+                text: 'Dublin',
+                isCorrect: false
+            },
+            {
+                text: 'London',
+                isCorrect: false
+            }
+        ]
+    },
+    {
+        imageSrc: "assets/images/france.jpg",
+        options: [{
+                text: 'France',
+                isCorrect: true
+            },
+            {
+                text: 'Madrid',
+                isCorrect: false
+            },
+            {
+                text: 'Dublin',
+                isCorrect: false
+            },
+            {
+                text: 'London',
+                isCorrect: false
+            }
+        ]
+    },
 ];
 
 
@@ -85,6 +145,8 @@ let quizQuestions = [{
 
 // Global variables
 let score = 0;
+
+
 // variables
 let correctUserAnswers = 0;
 let availableQuestions = quizQuestions;
@@ -116,7 +178,7 @@ let optionBtns = document.querySelectorAll('.option-btn')
 let quizImage = document.querySelector('#landmark');
 
 // buttons
-
+let saveUserName = document.querySelector('.enter-username-btn');
 let btns = document.querySelectorAll('.button')
 
 // Containers 
@@ -129,20 +191,6 @@ let gameOverBox = document.querySelector('.quiz-complete');
 function showQuizHighScores() {
     homeBox.classList.add('hide');
     highScoresBox.classList.remove('hide');
-    highScoresTable.textContent = highScores.map(highScores => {
-        return `<table>
-                    <tr>
-                    <th>Username</th>
-                    <th>Score</th>
-                    </tr>
-                    <tr>
-                    <td>${highScores.name}</td>
-                    <td>${highScores.score}</td>
-                    </tr>
-                    </table>`;
-    })
-    .join('');
-    console.log('openhighscores');
 }
 
 function closeQuizHighScores() {
@@ -163,12 +211,12 @@ function closeQuizRules() {
     console.log('closerules');
 }
 
-function gameOver(){
-    username.value = '';
+function gameOver() {
+    // username.value = '';
     restartGame();
 }
 
-function closeGameOverBox(){
+function closeGameOverBox() {
     homeBox.classList.remove('hide');
     gameOverBox.classList.add('hide');
 }
@@ -186,28 +234,28 @@ function beginQuiz() {
     startTimer();
 }
 
-function quizComplete(){
+function quizComplete() {
     closeGameOverBox();
     resetOptionBtns();
     resetCounter();
     secondsDisplay.textContent = 10;
     clearInterval(timerInterval);
     resetScore();
-    console.log('quiz complete')  
+    console.log('quiz complete')
 }
 
-function quizCounter(){
+function quizCounter() {
     counter++;
     questionCounter.innerText = counter;
     resetTimer();
-    
-    
+
+
     if (counter > 4) {
-            quizBox.classList.add('hide');
-            gameOverBox.classList.remove('hide');
-            console.log('gameover');
-            return;
-        }
+        quizBox.classList.add('hide');
+        gameOverBox.classList.remove('hide');
+        console.log('gameover');
+        return;
+    }
 }
 
 function resetCounter() {
@@ -216,7 +264,7 @@ function resetCounter() {
     console.log('counterreset')
 }
 
-function resetScore(){
+function resetScore() {
     score = 0;
     userScore.textContent = score;
     console.log('userscorereset');
@@ -229,22 +277,23 @@ optionBtns.forEach(function (button) {
 });
 
 function generateNewQuestion() {
-    
-    if(quizQuestions.length - availableQuestions.length <= 3){
-        
-    let shuffleQuestions = Math.floor(Math.random() * availableQuestions.length);
-    currentQuestion = shuffleQuestions;
-    let question = availableQuestions[currentQuestion];
-    quizImage.src = question.imageSrc;
-    availableQuestions.splice(currentQuestion, 1);
-    for (let i = 0; i < optionBtns.length; i++) {
-        optionBtns[i].textContent = '';
-    }
 
-    for (let i = 0; i < question.options.length; i++) {
-        optionBtns[i].textContent = question.options[i].text;
-        optionBtns[i].dataset.correct = question.options[i].isCorrect;
-    }
+    if (quizQuestions.length - availableQuestions.length <= 3) {
+
+        localStorage.setItem('mostRecentScore', score);
+        let shuffleQuestions = Math.floor(Math.random() * availableQuestions.length);
+        currentQuestion = shuffleQuestions;
+        let question = availableQuestions[currentQuestion];
+        quizImage.src = question.imageSrc;
+        availableQuestions.splice(currentQuestion, 1);
+        for (let i = 0; i < optionBtns.length; i++) {
+            optionBtns[i].textContent = '';
+        }
+
+        for (let i = 0; i < question.options.length; i++) {
+            optionBtns[i].textContent = question.options[i].text;
+            optionBtns[i].dataset.correct = question.options[i].isCorrect;
+        }
     }
 
 
@@ -298,7 +347,7 @@ function restartGame() {
     resetCounter();
     secondsDisplay.textContent = 10;
     clearInterval(timerInterval);
-    console.log('restartquiz')  
+    console.log('restartquiz')
 }
 
 function disableAnswerBtn() {
@@ -308,7 +357,7 @@ function disableAnswerBtn() {
 }
 
 function startTimer() {
-    timeRemaining = 10;  
+    timeRemaining = 10;
     timerInterval = setInterval(function () {
         countdown();
         secondsDisplay.textContent = timeRemaining;
@@ -331,7 +380,14 @@ function resetTimer() {
     clearInterval(timerInterval);
 }
 
+// Save high score
 
+username.addEventListener('keyup', () => {
+    console.log(username.value);
+    saveUserName.disabled = !username.value;
+});
 
-
-
+saveHighScore = (e) => {
+    console.log('clicked save button');
+    e.preventDefault();
+};

@@ -28,8 +28,8 @@
             <h1>Welcome to Picture This!</h1>
             <p>All you have to do is match the landmark to the correct option</p>
             <div class="home-btn-container">
-                <button class="button begin-quiz-button"  onclick="beginQuiz()">Let's Go!</button>
-                <button class="button high-score-button"  onclick="showQuizHighScores()">High Score</button>
+                <button class="button begin-quiz-button" onclick="beginQuiz()">Let's Go!</button>
+                <button class="button high-score-button" onclick="showQuizHighScores()">High Score</button>
                 <button class="button rules-button" onclick="showQuizRules()">Rules</button>
             </div>
         </div>
@@ -65,8 +65,9 @@
             <div class="nav-bar">
                 <div><i class="fa-solid fa-house"></i></div>
                 <div class="timer"><i class="fa-solid fa-stopwatch"></i>
-                <span id="seconds">10</span></div>
-                <div id="current-question"><i class="fa-solid fa-question"></i><span id="question-counter">1</span></div>
+                    <span id="seconds">10</span></div>
+                <div id="current-question"><i class="fa-solid fa-question"></i><span id="question-counter">1</span>
+                </div>
                 <div><i class="fa-solid fa-volume-xmark "></i></div>
                 <div><i class="fa-solid fa-volume-high"></i></div>
             </div>
@@ -81,10 +82,10 @@
                 <button aria-label="Option 4" class="button option-btn option-4-btn">London</button>
             </div>
             <div class="next-retry-container" id="next-retry-container">
-                <button aria-label="Restart Quiz" class="button retry-button"><i
-                        class="fa-solid fa-rotate-left" onclick= "restartGame()"></i></button>
-                <button aria-label="Next Question" class="button next-button" id="question-submit"  onclick="nextQuestion()"><i
-                        class="fa-sharp fa-solid fa-arrow-right"></i></button>
+                <button aria-label="Restart Quiz" class="button retry-button"><i class="fa-solid fa-rotate-left"
+                        onclick="restartGame()"></i></button>
+                <button aria-label="Next Question" class="button next-button" id="question-submit"
+                    onclick="nextQuestion()"><i class="fa-sharp fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
     </section>
@@ -101,9 +102,12 @@
         </div>
         <p id="user-score">Your total score is <span id="user-total-score">0</span></p>
         <div class="results-container" id="results-container">
-            <input type="text" name="username" id="username" placeholder="username" required>
-            <button aria-label="Enter Username" class="button enter-username-btn" onclick="showQuizHighScores()">Enter Username</button>
-            <button aria-label="Home" class="button home-button" onclick="quizComplete()">Home</button>
+            <form>
+                <input type="text" name="username" id="username" placeholder="username" required>
+                <button aria-label="Enter Username" class="button enter-username-btn" onclick="saveHighScore(event)"
+                    type="submit" disabled>Enter</button>
+                <button aria-label="Home" class="button home-button" onclick="quizComplete()">Home</button>
+            </form>
         </div>
     </section>
     <!--High Scores Page-->
@@ -117,34 +121,10 @@
         <div>
             <h1>High Scores</h1>
         </div>
-        
+
         <button aria-label="Home" class="button home-button" onclick="closeQuizHighScores()">Home</button>
     </section>
 </body>
 
 </html>
 
-<!-- <div id="leaderboard">
-    <table id="leaderboard-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>John</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>Dan</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>Jane</td>
-            <td>15</td>
-          </tr>
-        </tbody>
-      </table>
-</div> -->
