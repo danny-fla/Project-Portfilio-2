@@ -233,6 +233,11 @@ input{
     left: 0;
 }
 
+#high-scores-list {
+    list-style-type: none;
+    margin-top: 2rem;
+}
+
 .high-scores {
     height: 50%;
     width: 50%;

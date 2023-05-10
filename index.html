@@ -92,7 +92,7 @@
     <!-- End Of Quiz Page-->
 
 
-    <section class="quiz-complete hide" id="quiz-complete">
+    <section class="quiz-complete hide " id="quiz-complete">
         <div class="nav-bar">
             <div><i class="fa-solid fa-volume-xmark "></i></div>
             <div><i class="fa-solid fa-volume-high"></i></div>
@@ -100,12 +100,11 @@
         <div>
             <h1>Picture This!</h1>
         </div>
-        <p id="user-score">Your total score is <span id="user-total-score">0</span></p>
         <div class="results-container" id="results-container">
+            <h1 id="final-score"></h1>
             <form>
-                <input type="text" name="username" id="username" placeholder="username" required>
-                <button aria-label="Enter Username" class="button enter-username-btn" onclick="saveHighScore(event)"
-                    type="submit" disabled>Enter</button>
+                <input type="text" name="username" id="username" placeholder="username">
+                <button type="submit"  class="button" id="enter-username-btn" onclick="saveHighScore(event)" disabled>Save</button>
                 <button aria-label="Home" class="button home-button" onclick="quizComplete()">Home</button>
             </form>
         </div>
@@ -119,7 +118,8 @@
             <div><i class="fa-solid fa-volume-high"></i></div>
         </div>
         <div>
-            <h1>High Scores</h1>
+            <h1 id="high-score-h1">High Scores</h1>
+            <ul id="high-scores-list"></ul>
         </div>
 
         <button aria-label="Home" class="button home-button" onclick="closeQuizHighScores()">Home</button>
@@ -128,3 +128,12 @@
 
 </html>
 
+<!-- <p id="user-score">Your total score is <span id="user-total-score">0</span></p>
+        <div class="results-container" id="results-container">
+            <form>
+                <input type="text" name="username" id="username" placeholder="username" required>
+                <button aria-label="Enter Username" class="button enter-username-btn" onclick="saveHighScore(event)"
+                    type="submit" disabled>Enter</button>
+                <button aria-label="Home" class="button home-button" onclick="quizComplete()">Home</button>
+            </form>
+        </div> -->

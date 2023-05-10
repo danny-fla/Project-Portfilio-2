@@ -1,4 +1,4 @@
-let quizQuestions = [{
+let quizQuestions = [ {
         imageSrc: "assets/images/sagrada-familia.webp",
         options: [{
                 text: 'Barcelona1',
@@ -77,7 +77,7 @@ let quizQuestions = [{
                 isCorrect: false
             }
         ]
-    },
+     },
     {
         imageSrc: "assets/images/brazil.jpg",
         options: [{
@@ -141,7 +141,9 @@ let quizQuestions = [{
 ];
 
 
-
+quizQuestions.forEach((question) => {
+    console.log(question.imageSrc);
+});
 
 // Global variables
 let score = 0;
@@ -168,7 +170,7 @@ let leaderboardTable = document.querySelector('#leaderboard-table tbody');
 
 
 // let gameProgress;
-let username = document.querySelector('#username');
+
 
 const secondsDisplay = document.querySelector('#seconds');
 let time;
@@ -178,7 +180,7 @@ let optionBtns = document.querySelectorAll('.option-btn')
 let quizImage = document.querySelector('#landmark');
 
 // buttons
-let saveUserName = document.querySelector('.enter-username-btn');
+
 let btns = document.querySelectorAll('.button')
 
 // Containers 
@@ -266,7 +268,7 @@ function resetCounter() {
 
 function resetScore() {
     score = 0;
-    userScore.textContent = score;
+    // userScore.textContent = score;
     console.log('userscorereset');
 }
 
@@ -277,10 +279,9 @@ optionBtns.forEach(function (button) {
 });
 
 function generateNewQuestion() {
-
-    if (quizQuestions.length - availableQuestions.length <= 3) {
-
+    if (quizQuestions.length < availableQuestions.length <= 3 ) {
         localStorage.setItem('mostRecentScore', score);
+
         let shuffleQuestions = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = shuffleQuestions;
         let question = availableQuestions[currentQuestion];
@@ -298,6 +299,43 @@ function generateNewQuestion() {
 
 
 }
+
+// Save high score
+const username = document.querySelector('#username'); // input box
+const saveUserName = document.querySelector('#enter-username-btn'); // save score button
+const finalScore = document.querySelector('#final-score');
+const mostRecentScore = localStorage.getItem('mostRecentScore');
+
+finalScore.textContent = mostRecentScore;
+
+username.addEventListener('keyup', () => {
+    console.log(username.value);
+    saveUserName.disabled = !username.value;
+});
+
+let highScores = e => {
+    console.log('clicked The save button');
+    e.preventDefault();
+     score = {
+        name:username.value,
+        score: mostRecentScore
+    };
+    highScores.push(score);
+    highScores.sort((a,b) => b.score - a.score);
+    highScores.splice(5);
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+    window.location.assign('index.html');
+}
+
+// highscores list
+
+const highScoresList = document.querySelector('#high-scores-list');
+const highScores1 = JSON.parse(localStorage.getItem('highScores')) || [];
+
+highScoresList.innerHTML = highScores
+    .map(score => {
+    return `<li class = "high-score">${score.name} ${score.score}</li>`;
+}).join('');
 
 function calculateAnswer(event) {
     let selectedOption = event.target;
@@ -380,14 +418,3 @@ function resetTimer() {
     clearInterval(timerInterval);
 }
 
-// Save high score
-
-username.addEventListener('keyup', () => {
-    console.log(username.value);
-    saveUserName.disabled = !username.value;
-});
-
-saveHighScore = (e) => {
-    console.log('clicked save button');
-    e.preventDefault();
-};
