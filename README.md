@@ -74,3 +74,33 @@ The objective of this project is to provide the user a visually appealing quiz t
 The font used for Picture This! was Dongle. It was chosen for its rounded frame that projects a playful and rhythmic visual for the user.
 
 # Features
+
+### Home Page
+
+ - The home page will be displayed to the user once they open the website.
+ - The user will be shown the Picture This! title a navigation bar, a short description and three buttons.
+ - The three buttons provide the user with the options to:
+    - Begin the quiz.
+    - View the game's leaderboard.
+    - Open the quiz rules.
+
+    (homescreen img)
+
+### Rules Page
+
+- This page contains the rules on how to play the quiz and what is expected of the user.
+- A "Home" button is included to take the user back to the "Home Page" once clicked.
+
+(rules page img)
+
+### High Scores Page
+
+- This page will display the user's plus a maximum of 5 other user's names and scores if already saved to the site's local storage.
+- A "Home" button is included to take the user back to the "Home Page" once clicked.
+
+(highscores img)
+
+### Quiz Page
+
+- The page will display to the user: 
+    - An image
