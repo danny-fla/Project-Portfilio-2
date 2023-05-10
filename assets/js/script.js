@@ -330,7 +330,7 @@ let highScores = e => {
 // highscores list
 
 const highScoresList = document.querySelector('#high-scores-list');
-const highScores1 = JSON.parse(localStorage.getItem('highScores')) || [];
+const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 highScoresList.innerHTML = highScores
     .map(score => {
