@@ -82,9 +82,9 @@
                 <button aria-label="Option 4" class="button option-btn option-4-btn">London</button>
             </div>
             <div class="next-retry-container" id="next-retry-container">
-                <button aria-label="Restart Quiz" class="button retry-button"><i class="fa-solid fa-rotate-left"
+                <button aria-label="Restart Quiz" class="button retry-button navigation-btns"><i class="fa-solid fa-rotate-left"
                         onclick="restartGame()"></i></button>
-                <button aria-label="Next Question" class="button next-button" id="question-submit"
+                <button aria-label="Next Question" class="button next-button navigation-btns" id="question-submit"
                     onclick="nextQuestion()"><i class="fa-sharp fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
@@ -104,7 +104,7 @@
             <h1 id="final-score"></h1>
             <form>
                 <input type="text" name="username" id="username" placeholder="username">
-                <button type="submit"  class="button" id="enter-username-btn" onclick="saveHighScore(event)" disabled>Save</button>
+                <button type="submit"  class="button" id="enter-username-btn" onclick="saveHighScores(event)" disabled>Save</button>
                 <button aria-label="Home" class="button home-button" onclick="quizComplete()">Home</button>
             </form>
         </div>
@@ -118,8 +118,9 @@
             <div><i class="fa-solid fa-volume-high"></i></div>
         </div>
         <div>
-            <h1 id="high-score-h1">High Scores</h1>
-            <ul id="high-scores-list"></ul>
+            <!-- <h1 id="high-score-h1">High Scores</h1> -->
+            <ul id="high-score-list">
+            </ul>
         </div>
 
         <button aria-label="Home" class="button home-button" onclick="closeQuizHighScores()">Home</button>
@@ -127,13 +128,3 @@
 </body>
 
 </html>
-
-<!-- <p id="user-score">Your total score is <span id="user-total-score">0</span></p>
-        <div class="results-container" id="results-container">
-            <form>
-                <input type="text" name="username" id="username" placeholder="username" required>
-                <button aria-label="Enter Username" class="button enter-username-btn" onclick="saveHighScore(event)"
-                    type="submit" disabled>Enter</button>
-                <button aria-label="Home" class="button home-button" onclick="quizComplete()">Home</button>
-            </form>
-        </div> -->

@@ -147,7 +147,7 @@ quizQuestions.forEach((question) => {
 
 // Global variables
 let score = 0;
-
+const HIGH_SCORE_COOKIE = "highScoreCookie";
 
 // variables
 let correctUserAnswers = 0;
@@ -162,7 +162,7 @@ let questionsAsked = [];
 let currentQuestion = {};
 let questionCounter = document.querySelector('#question-counter');
 let counter = 1;
-let userScore = document.querySelector('#user-score')
+let userScore = document.querySelector('#high-score-h1');
 
 //table
 
@@ -214,7 +214,6 @@ function closeQuizRules() {
 }
 
 function gameOver() {
-    // username.value = '';
     restartGame();
 }
 
@@ -252,11 +251,14 @@ function quizCounter() {
     resetTimer();
 
 
-    if (counter > 4) {
+    if (counter > 5) {
         quizBox.classList.add('hide');
         gameOverBox.classList.remove('hide');
         console.log('gameover');
+        document.getElementById('final-score').innerHTML = score;
         return;
+
+
     }
 }
 
@@ -268,7 +270,6 @@ function resetCounter() {
 
 function resetScore() {
     score = 0;
-    // userScore.textContent = score;
     console.log('userscorereset');
 }
 
@@ -280,7 +281,7 @@ optionBtns.forEach(function (button) {
 
 function generateNewQuestion() {
     if (quizQuestions.length < availableQuestions.length <= 3 ) {
-        localStorage.setItem('mostRecentScore', score);
+        // localStorage.setItem('mostRecentScore', score);
 
         let shuffleQuestions = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = shuffleQuestions;
@@ -313,29 +314,54 @@ username.addEventListener('keyup', () => {
     saveUserName.disabled = !username.value;
 });
 
-let highScores = e => {
+let saveHighScores = e => {
     console.log('clicked The save button');
     e.preventDefault();
-     score = {
-        name:username.value,
-        score: mostRecentScore
-    };
-    highScores.push(score);
-    highScores.sort((a,b) => b.score - a.score);
-    highScores.splice(5);
-    localStorage.setItem('highScores', JSON.stringify(highScores));
-    window.location.assign('index.html');
+     userScore =  mostRecentScore ;
+     let today = new Date();
+
+     let highScores = getCookie(HIGH_SCORE_COOKIE) || [];
+     highScores = [...highScores, {name: username.value, score:score}]
+     highScores.sort((a, b) => b.score - a.score);
+     let newHighScores = highScores.splice(0, 5);
+     console.log(highScores);
+        setCookie(HIGH_SCORE_COOKIE, newHighScores, today.getDate()+30)
+        window.location.assign('index.html');
+
 }
 
 // highscores list
+function setCookie(cookieName, value, expireyDate) {
+    let jsonValue= JSON.stringify(value);
+    console.log(jsonValue)
+    document.cookie = `${cookieName}=${jsonValue}; expires=${expireyDate}; path=/`;
+}
 
-const highScoresList = document.querySelector('#high-scores-list');
-const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+function getCookie(cookieName) {
+    console.log("getCookie ran")
+    var name = cookieName + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    console.log(decodedCookie);
+    var cookieArray = decodedCookie.split(';');
+    for(var i = 0; i < cookieArray.length; i++) {
+      var cookie = cookieArray[i];
+      while (cookie.charAt(0) == ' ') {
+        cookie = cookie.substring(1);
+      }
+      if (cookie.indexOf(name) == 0) {
+        return JSON.parse(cookie.substring(name.length, cookie.length));
+      }
+    }
+    return "";
+  }
 
+const highScoresList = document.getElementById('high-score-list');
+let highScores = getCookie(HIGH_SCORE_COOKIE);
+console.log(JSON.parse(localStorage.getItem('highScores')) || [])
 highScoresList.innerHTML = highScores
     .map(score => {
-    return `<li class = "high-score">${score.name} ${score.score}</li>`;
-}).join('');
+    return `<li class = "">${score.name} ${score.score}</li>`;
+});
 
 function calculateAnswer(event) {
     let selectedOption = event.target;
@@ -360,7 +386,6 @@ function calculateAnswer(event) {
 
 function nextQuestion() {
     secondsDisplay.textContent = 10;
-    resetTimer();
     startTimer();
     generateNewQuestion();
     resetOptionBtns();

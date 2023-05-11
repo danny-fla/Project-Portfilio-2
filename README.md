@@ -1,6 +1,6 @@
-# ** Picture This! - Portfolio Projeect 2 - Javascipt**
+# Picture This! - Portfolio Project 2 - Javascript
 
-Picture This! is an online quiz for users to find out how well they know iconic landmarks around the world.
+Picture This! is an online quiz for users to test how well they know iconic landmarks from around the world.
 
 Follow this link to check out the live site - <a href= "">
 
@@ -13,7 +13,6 @@ Follow this link to check out the live site - <a href= "">
      - [Site Aims](<#site-aims>)
      - [User Stories](<#user-stories>)
      - [Design Wireframes](<#design-wireframes>)
-     - [Site Structure](<#site-structure>)
      - [Design Choices](<#design-choices>)
         - [Colour Scheme](<#colour-scheme>)
         - [Typography](<#typography>)
@@ -35,7 +34,7 @@ Follow this link to check out the live site - <a href= "">
 
 # Objective
 
-The objective of this project is to provide the user a visually appealing quiz that is functioning, respsonsive and engaging.
+The purpose of this project is to provide the user with a quiz that is visually appealing, fully functional, respsonsive and engaging.
 
 [Back to top](<#contents>)
 
@@ -43,10 +42,11 @@ The objective of this project is to provide the user a visually appealing quiz t
 
 ## Site Aims
 
-- Present the user an engaging quiz to test their knowledge of iconic landmarks around the world.
+- Present the user an engaging quiz to test their knowledge of iconic landmarks from around the world.
 - Present the user a quiz that is both responsive and visually appealing on multiple devices.
-- Provide the user with an option to save their highscore and enter their own unique username.
-- Provide the user a consistent interactive quiz that they can easily navigate.
+- Provide the user with an option to save their scores and enter their own unique username.
+- Present the user with a consistently interactive quiz that they can easily navigate.
+
 
 
 | ID | ROLE | EXPECTATIONS | TARGET |
@@ -59,11 +59,6 @@ The objective of this project is to provide the user a visually appealing quiz t
 
 ## Design Wireframes
 
-## Site Structure
-
-- The user will navigate through a total of five pages. The first page the user will encounter is the "Home" page. From there the user will have three options: 
-    - Let's Go!: This will begin the quiz for the user. The quiz will display the user a 10 second timer which will begin once they load the quiz and a question counter that will show the user's progression through the quiz.
-    - 
 
 ## Design Choices
 
@@ -89,18 +84,37 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
 ### Rules Page
 
 - This page contains the rules on how to play the quiz and what is expected of the user.
-- A "Home" button is included to take the user back to the "Home Page" once clicked.
+- A "Home" button is included to take the user back to the "Home Page".
 
 (rules page img)
 
 ### High Scores Page
 
-- This page will display the user's plus a maximum of 5 other user's names and scores if already saved to the site's local storage.
-- A "Home" button is included to take the user back to the "Home Page" once clicked.
+- This page will display the user's name and their top five highest scores if already saved to the site's local storage.
+- A "Home" button is included to take the user back to the "Home Page".
 
 (highscores img)
 
 ### Quiz Page
 
 - The page will display to the user: 
-    - An image
+    - Picture This! heading.
+    - An image of a famous landmark.
+    - Four possible option buttons.
+    - Next and restart buttons.
+    - A navigation bar that includes a home icon, quiz timer, question counter and a volume icon.
+
+
+- The home icon will redirect the user back to the "Home Screen".
+- The timer will start once the quiz begins. If timer gets to zero before an option is selected it will disable all option buttons.
+- The question counter will increment by one as the user progresses through the quiz.
+- The volume will either play or mute the quiz music depending on the user's preference.
+- The option buttons will turn green if selected correctly and red if selected incorrectly. They will also disable once an option has been selected to prevent multiple options being chosen.
+- The next button will progress the user on to the next stage of the quiz.
+- The restart button will reset the quiz and revert the score, timer and counter back to its original state.
+
+(quiz img)
+
+### Quiz Completion Page
+
+- The user will be directed to this section once they have navigated their way through ten questions.

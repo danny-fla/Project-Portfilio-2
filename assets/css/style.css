@@ -233,9 +233,17 @@ input{
     left: 0;
 }
 
-#high-scores-list {
+ul {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
     margin-top: 2rem;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+li{
+    font-size: large;
 }
 
 .high-scores {
@@ -312,6 +320,12 @@ input{
 }
 
 @media screen and (max-width:950px){
+    html {
+        background: url(/assets/images/background.jpg) no-repeat;
+        min-height: 1200px;
+        background-size: cover;
+    }
+    
     body {
         font-size: medium;
     }
@@ -321,7 +335,7 @@ input{
     }
 
     header h1 {
-        font-size: 2.5em;
+        font-size: 6rem;
     }
 
     .home-container,
@@ -330,6 +344,7 @@ input{
     .quiz-complete,
     .high-scores {
         width: 80%;
+        height: 60%;
     }
 
     .nav-bar {
@@ -337,22 +352,22 @@ input{
     }
 
     .quiz-home-page h1 {
-        font-size: 40px;
+        font-size: 5rem;
     }
 
     .quiz-home-page p {
-        font-size: large;
+        font-size: 2rem;
     }
 
     .home-btn-container {
-        top: 2em;
+        margin-top: 12rem;
         height: 50%;
     }
 
     .options-container {
         top: 15em;
     }
-
+    
     .next-retry-container {
         top: 18em;
     }
@@ -361,9 +376,29 @@ input{
         height: 60%;
     }
 
+    .options-container {
+        margin-top: 15rem;
+    }
+
+    .option-btn {
+        margin: 1rem 1rem;
+    }
+
+    .next-retry-container {
+        margin-top: 20rem;
+    }
+    .navigation-btns {
+        margin: 0.8rem 0.8rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
+    html {
+        background: url(/assets/images/background.jpg) no-repeat;
+        min-height: 900px;
+        background-size: cover;
+    }
+
     body {
         font-size: large;
         padding: 10px;
@@ -391,11 +426,35 @@ input{
         display: none;
     }
     .question-container {
-        /* top: 5em;
-        height: auto; */
+        top: 5em;
     }
     .rules-container {
         padding: 5px 5px;
         font-size: large;
+    }
+
+    .options-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 150px;
+
+    }
+
+    .next-retry-container {
+        margin-top: 250px;
+    }
+
+    
+}
+
+@media screen and (max-width: 360px){
+    header h1 {
+        font-size: 3rem;
+    }
+
+    html {
+        background: url(/assets/images/background.jpg) no-repeat;
+        min-height: 740px;
+        background-size: cover;
     }
 }
