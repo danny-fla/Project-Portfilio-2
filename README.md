@@ -8,7 +8,7 @@ Follow this link to check out the live site - <a href= "">
 
 # Contents
 
-- [Objective] (<#objective>)
+- [Aims](<#Aims>)
 - [User Experience](<#user-experience-ux>)
      - [Site Aims](<#site-aims>)
      - [User Stories](<#user-stories>)
@@ -61,6 +61,8 @@ The purpose of this project is to provide the user with a quiz that is visually 
 
 
 ## Design Choices
+
+Picture This! uses a complementary colour harmony. The quiz container contains a lighter shade of blue than the darker blue used in the background image. This is to sublty draw the user's attention to the crux of the game without taking away the background imagery. Yellow on the other hand is directly opposite from blue and its purpose is to pronounce the game's buttons. 
 
 ### Colour Scheme
 
@@ -118,3 +120,27 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
 ### Quiz Completion Page
 
 - The user will be directed to this section once they have navigated their way through ten questions.
+- Here the user will be given their final score and an input box.
+- They can chose to enter their name into the input to be viewed on the leaderboard.
+
+# Future Features
+
+## Quiz Difficulty Level
+
+- This could be acheived by including an extra page before the user begins the quiz, where they must choose the difficluty level of the game e.g. easy, medium, hard.
+- A way to increase the quiz difficulty is to adjust the length of time the user has to make a decision for each question.
+
+# Technologies Used
+- HTML5
+- CSS3
+- Javascript
+- Balsamiq
+- Google Chrome DevTools
+- GitHub
+- GitPod
+
+# Testing
+
+## Code Validation
+
+Picutre This! was validated using W3C HTML validator and W3C CSS validator. 

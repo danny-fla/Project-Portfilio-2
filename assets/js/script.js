@@ -141,21 +141,14 @@ let quizQuestions = [ {
 ];
 
 
-quizQuestions.forEach((question) => {
-    console.log(question.imageSrc);
-});
-
-// Global variables
+// variables
 let score = 0;
 const HIGH_SCORE_COOKIE = "highScoreCookie";
-
-// variables
 let correctUserAnswers = 0;
 let availableQuestions = quizQuestions;
 let questionSelector = [];
 let userAnswers = [];
 let questionsAnswered = 0;
-
 const maxQuestions = 3;
 let questionsAsked = [];
 
@@ -163,26 +156,16 @@ let currentQuestion = {};
 let questionCounter = document.querySelector('#question-counter');
 let counter = 1;
 let userScore = document.querySelector('#high-score-h1');
-
-//table
-
-let leaderboardTable = document.querySelector('#leaderboard-table tbody');
-
-
-// let gameProgress;
-
-
 const secondsDisplay = document.querySelector('#seconds');
 let time;
 let timerInterval;
-
 let optionBtns = document.querySelectorAll('.option-btn')
 let quizImage = document.querySelector('#landmark');
-
-// buttons
-
 let btns = document.querySelectorAll('.button')
-
+const username = document.querySelector('#username');
+const saveUserName = document.querySelector('#enter-username-btn');
+const finalScore = document.querySelector('#final-score');
+const mostRecentScore = localStorage.getItem('mostRecentScore');
 // Containers 
 let homeBox = document.querySelector('.home-container');
 let quizBox = document.querySelector('.quiz-container');
@@ -275,13 +258,10 @@ function resetScore() {
 
 // attaches event listener to each option button and envokes check answer function when clicked
 
-optionBtns.forEach(function (button) {
-    button.addEventListener('click', calculateAnswer);
-});
 
 function generateNewQuestion() {
     if (quizQuestions.length < availableQuestions.length <= 3 ) {
-        // localStorage.setItem('mostRecentScore', score);
+
 
         let shuffleQuestions = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = shuffleQuestions;
@@ -302,16 +282,17 @@ function generateNewQuestion() {
 }
 
 // Save high score
-const username = document.querySelector('#username'); // input box
-const saveUserName = document.querySelector('#enter-username-btn'); // save score button
-const finalScore = document.querySelector('#final-score');
-const mostRecentScore = localStorage.getItem('mostRecentScore');
+
 
 finalScore.textContent = mostRecentScore;
 
 username.addEventListener('keyup', () => {
     console.log(username.value);
     saveUserName.disabled = !username.value;
+});
+
+optionBtns.forEach(function (button) {
+    button.addEventListener('click', calculateAnswer);
 });
 
 let saveHighScores = e => {

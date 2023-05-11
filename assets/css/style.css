@@ -88,6 +88,10 @@ hr {
     list-style-type: none;
 }
 
+.rules-container li {
+    
+}
+
 .hide {
     display: none;
 }
@@ -149,7 +153,6 @@ hr {
 }
 
 .question-container {
-    /* border: 1px solid black; */
     position: absolute;
     top: 3em;
     right: 1em;
@@ -233,7 +236,7 @@ input{
     left: 0;
 }
 
-ul {
+.high-scores ul {
     display: flex;
     flex-direction: column;
     list-style-type: none;
@@ -242,8 +245,9 @@ ul {
     font-family: Arial, sans-serif;
 }
 
-li{
+.high-scores li{
     font-size: large;
+    
 }
 
 .high-scores {
@@ -260,6 +264,7 @@ li{
     background-color: red;
     color: white;
 }
+
 
 /* media queries */
 
