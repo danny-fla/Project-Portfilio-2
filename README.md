@@ -143,4 +143,20 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
 
 ## Code Validation
 
-Picutre This! was validated using W3C HTML validator and W3C CSS validator. 
+Picutre This! was validated using W3C HTML validator and W3C CSS validator.
+
+(validation img)
+
+## JSHint
+
+Javascript was validated using JSHint
+
+(JSHint img)
+
+## Lighthouse Testing
+
+Chrome DevTools' Lightjouse was used to test the site's performance, accessibility, best practices and SEO.
+
+## Accessibility Testing
+
+The color contrast of the website was tested by using A11y.
