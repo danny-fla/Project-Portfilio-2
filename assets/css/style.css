@@ -23,7 +23,6 @@ body {
 }
 
 header {
-    display: flexbox;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -129,7 +128,7 @@ hr {
     display: block;
     margin-bottom: 10px;
     padding: 0.2em 1.4em;
-    margin: 0 0.5 0.5 0;
+    margin: 0rem 0.5rem 0.5rem 0rem;
     border-radius: 1.5rem;
     box-sizing: border-box;
     font-family: lato;
@@ -139,9 +138,8 @@ hr {
 }
 
 .button {
-    display: flexbox;
     padding: 0.2em 1.4em;
-    margin: 0 0.5 0.5 0;
+    margin:0rem 0.5rem 0.5rem 0rem;
     border-radius: 1.5rem;
     box-sizing: border-box;
     font-family: lato;
@@ -664,4 +662,4 @@ input{
        top: 18rem;
        font-size: small;
     }
-} */
+}

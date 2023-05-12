@@ -4,7 +4,7 @@ Picture This! is an online quiz for users to test how well they know iconic land
 
 Follow this link to check out the live site - <a href= "">
 
-(image of screen responsivness)
+![Device responsive](assets/images/responsive-screens.png)
 
 # Contents
 
@@ -59,14 +59,18 @@ The purpose of this project is to provide the user with a quiz that is visually 
 
 ## Design Wireframes
 
+![Device responsive](assets/images/responsive-screens.png)
 
 ## Design Choices
 
-Picture This! uses a complementary colour harmony. The quiz container contains a lighter shade of blue than the darker blue used in the background image. This is to sublty draw the user's attention to the crux of the game without taking away the background imagery. Yellow on the other hand is directly opposite from blue and its purpose is to pronounce the game's buttons. 
-
 ### Colour Scheme
 
+Picture This! uses a complementary colour harmony. The quiz container contains a lighter shade of blue than the darker blue used in the background image. This is to sublty draw the user's attention to the crux of the game without taking away the background imagery. Yellow on the other hand is directly opposite from blue and its purpose is to pronounce the game's buttons.
+
+![Color palette ](assets/images/palette.png)
+
 ### Typography
+
 
 The font used for Picture This! was Dongle. It was chosen for its rounded frame that projects a playful and rhythmic visual for the user.
 
@@ -81,21 +85,21 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
     - View the game's leaderboard.
     - Open the quiz rules.
 
-    (homescreen img)
+    ![Home Screen](assets/images/home-screen.png)
 
 ### Rules Page
 
 - This page contains the rules on how to play the quiz and what is expected of the user.
 - A "Home" button is included to take the user back to the "Home Page".
 
-(rules page img)
+![]()
 
 ### High Scores Page
 
 - This page will display the user's name and their top five highest scores if already saved to the site's local storage.
 - A "Home" button is included to take the user back to the "Home Page".
 
-(highscores img)
+![]()
 
 ### Quiz Page
 
@@ -115,13 +119,15 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
 - The next button will progress the user on to the next stage of the quiz.
 - The restart button will reset the quiz and revert the score, timer and counter back to its original state.
 
-(quiz img)
+![]()
 
 ### Quiz Completion Page
 
 - The user will be directed to this section once they have navigated their way through ten questions.
 - Here the user will be given their final score and an input box.
 - They can chose to enter their name into the input to be viewed on the leaderboard.
+
+![]()
 
 # Future Features
 
@@ -145,21 +151,19 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
 
 Picutre This! was validated using W3C HTML validator and W3C CSS validator.
 
-(validation img)
+![]()
 
 ## JSHint
 
 Javascript was validated using JSHint
 
-(JSHint img)
+![]()
 
 ## Lighthouse Testing
 
 Chrome DevTools' Lightjouse was used to test the site's performance, accessibility, best practices and SEO.
 
-## Accessibility Testing
-
-The color contrast of the website was tested by using A11y.
+![]()
 
 ## Responsive Testing
 

@@ -150,11 +150,6 @@ let score = 0;
 const HIGH_SCORE_COOKIE = "highScoreCookie";
 let correctUserAnswers = 0;
 let availableQuestions = quizQuestions;
-let questionSelector = [];
-let userAnswers = [];
-let questionsAnswered = 0;
-const maxQuestions = 3;
-let questionsAsked = [];
 const highScoresList = document.getElementById('high-score-list');
 let highScores = getCookie(HIGH_SCORE_COOKIE);
 let currentQuestion = {};
@@ -162,11 +157,9 @@ let questionCounter = document.querySelector('#question-counter');
 let counter = 1;
 let userScore = document.querySelector('#high-score-h1');
 const secondsDisplay = document.querySelector('#seconds');
-let time;
 let timerInterval;
-let optionBtns = document.querySelectorAll('.option-btn')
+let optionBtns = document.querySelectorAll('.option-btn');
 let quizImage = document.querySelector('#landmark');
-let btns = document.querySelectorAll('.button')
 const username = document.querySelector('#username');
 const saveUserName = document.querySelector('#enter-username-btn');
 const finalScore = document.querySelector('#final-score');
@@ -253,7 +246,7 @@ function beginQuiz() {
     quizBox.classList.remove('hide');
     correctUserAnswers = 0;
     availableQuestions = [...quizQuestions];
-    secondsDisplay.textContent;
+    // secondsDisplay.textContent;
     resetScore();
     generateNewQuestion();
     resetTimer();
@@ -347,14 +340,14 @@ let saveHighScores = e => {
 
      // retrives any existing scores. If there are none it sets value to an empty array.
      let highScores = getCookie(HIGH_SCORE_COOKIE) || [];
-     highScores = [...highScores, {name: username.value, score:score}]
+     highScores = [...highScores, {name: username.value, score:score}];
      highScores.sort((a, b) => b.score - a.score);
      // The array is then sorted in decending order and extracts the five highest scores.
 
      let newHighScores = highScores.splice(0, 5);
-        setCookie(HIGH_SCORE_COOKIE, newHighScores, today.getDate()+30)
+        setCookie(HIGH_SCORE_COOKIE, newHighScores, today.getDate()+30);
         window.location.assign('index.html');
-}
+};
 
 /**
  * Stores data in browser as a cookie.
