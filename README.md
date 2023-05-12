@@ -4,7 +4,7 @@ Picture This! is an online quiz for users to test how well they know iconic land
 
 Follow this link to check out the live site - <a href= "">
 
-![Device responsive](assets/images/responsive-screens.png)
+![Device responsive](assets/images/responsive-screen.png)
 
 # Contents
 
@@ -23,11 +23,8 @@ Follow this link to check out the live site - <a href= "">
     - [Code Validation](<#code-validation>)
     -  [JSHint](<#jshint>)
     - [Lighthouse Testing](<#lighthouse-testing>)
-    - [Accessibility Testing](<#accessibility-testing>)
     - [Responsive Testing](<#responsive-testing>)
     - [Manual Testing](<#manual-testing>)
-    - [Bugs Fixed](<#bugs-fixed>)
-    - [Unresolved Bugs](<#unresolved-bugs>)
 - [Deployment](<#deployment>)
 - [Credits](<#credits>)
 - [Acknowledgements](<#acknowledgements>)
@@ -36,7 +33,6 @@ Follow this link to check out the live site - <a href= "">
 
 The purpose of this project is to provide the user with a quiz that is visually appealing, fully functional, respsonsive and engaging.
 
-[Back to top](<#contents>)
 
 # User Experience (UX)
 
@@ -59,7 +55,15 @@ The purpose of this project is to provide the user with a quiz that is visually 
 
 ## Design Wireframes
 
-![Device responsive](assets/images/responsive-screens.png)
+View wireframes here: 
+
+[WireFrame Home Page](assets/images/wrieframe-home.png)
+
+[WireFrame Quiz Page](assets/images/wireframe-quiz.png)
+
+[WireFrame Responsive Home Page Tablet](assets/images/wireframe-responsive.png)
+
+[WireFrame Responsive Home Page Mobile](assets/images/wireframe-responsive-2.png)
 
 ## Design Choices
 
@@ -92,14 +96,14 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
 - This page contains the rules on how to play the quiz and what is expected of the user.
 - A "Home" button is included to take the user back to the "Home Page".
 
-![]()
+![Rules Page](assets/images/Rules.png)
 
 ### High Scores Page
 
 - This page will display the user's name and their top five highest scores if already saved to the site's local storage.
 - A "Home" button is included to take the user back to the "Home Page".
 
-![]()
+![High Scores Page](assets/images/high-scores.png)
 
 ### Quiz Page
 
@@ -119,7 +123,7 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
 - The next button will progress the user on to the next stage of the quiz.
 - The restart button will reset the quiz and revert the score, timer and counter back to its original state.
 
-![]()
+![Quiz Page](assets/images/quiz-page.png)
 
 ### Quiz Completion Page
 
@@ -127,7 +131,7 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
 - Here the user will be given their final score and an input box.
 - They can chose to enter their name into the input to be viewed on the leaderboard.
 
-![]()
+![Game Over Page](assets/images/quiz-completion.png)
 
 # Future Features
 
@@ -151,11 +155,11 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
 
 Picutre This! was validated using W3C HTML validator and W3C CSS validator.
 
-![]()
+![CSS Validation](assets/images/css-validator.png)
 
 ## JSHint
 
-Javascript was validated using JSHint
+Javascript was validated using JSHint.
 
 ![]()
 
@@ -163,7 +167,7 @@ Javascript was validated using JSHint
 
 Chrome DevTools' Lightjouse was used to test the site's performance, accessibility, best practices and SEO.
 
-![]()
+![Lighthouse Test](assets/images/lighthouse.png)
 
 ## Responsive Testing
 
@@ -211,3 +215,14 @@ Picture This! was deployed to GitHub pages The steps to deploy are:
 - Select the source tab, the select the branch titled "Main" and in the dropdown menu select the folder titled "Root".
 - Select "Save".
 
+# Credits
+
+- Background image was obtained from [fact.net](https://facts.net/)
+- Button styling was inspired from [fdossena.com](https://fdossena.com/?p=html5cool/buttons/i.frag)
+- Images used for quiz questions were obtained from various Google images soucres.
+- Idea to store and retrive information from browser cookies came from my friend Conor.
+- Timer and Countdown functions were inspired from Code Instuite's Slack community.
+
+# Acknowledgements
+
+I would like to thank my mentor, Code Instuite's Tutor Support, members of the Slack community for all their help and support throughout the creation of the site.
