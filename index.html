@@ -42,8 +42,8 @@
             <ul>
                 <li>To begin select Let's Go! on the Home Page</li>
                 <li>Once the quiz starts match the landmark shown to the correct option below</li>
-                <li>Each correct answer will result in 10 points</li>
-                <li>There is a 15 second timer for each question!</li>
+                <li>Each correct answer will result in 1 point</li>
+                <li>There is a 10 second timer for each question!</li>
             </ul>
             <p>Good Luck!</p>
             <button aria-label="Home" class="button home-button" onclick="closeQuizRules()">Home</button>
@@ -54,13 +54,13 @@
     <section class="quiz-container hide" id="quiz-container">
         <div class="quiz-game-page" id="quiz-game-page">
             <div class="nav-bar">
-                <div class="timer"><i class="fa-solid fa-stopwatch"></i>
+                 <div class="timer"><i class="fa-solid fa-stopwatch"></i>
                     <span id="seconds">10</span></div>
                 <div id="current-question"><i class="fa-solid fa-question"></i><span id="question-counter">1</span>
                 </div>
                 </div>
             <div class="question-container" id="question-container">
-                <img id="landmark" src="">
+                <img id="landmark">
             </div>
             <hr>
             <div class="options-container" id="options-container">
@@ -81,10 +81,6 @@
 
 
     <section class="quiz-complete hide " id="quiz-complete">
-        <!-- <div class="nav-bar">
-            <div><i class="fa-solid fa-volume-xmark "></i></div>
-            <div><i class="fa-solid fa-volume-high"></i></div>
-        </div> -->
         <div>
             <h1>Picture This!</h1>
         </div>
@@ -101,12 +97,7 @@
 
 
     <section class="high-scores hide" id="high-scores">
-        <!-- <div class="nav-bar">
-            <div><i class="fa-solid fa-volume-xmark "></i></div>
-            <div><i class="fa-solid fa-volume-high"></i></div>
-        </div> -->
         <div>
-            <!-- <h1 id="high-score-h1">High Scores</h1> -->
             <ul id="high-score-list">
             </ul>
         </div>

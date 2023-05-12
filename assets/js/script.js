@@ -1,7 +1,11 @@
+/**
+ * Questions for quiz
+ */
+
 let quizQuestions = [ {
         imageSrc: "assets/images/sagrada-familia.webp",
         options: [{
-                text: 'Barcelona1',
+                text: 'Barcelona',
                 isCorrect: true
             },
             {
@@ -21,11 +25,11 @@ let quizQuestions = [ {
     {
         imageSrc: "assets/images/dublin-castle.webp",
         options: [{
-                text: 'Barcelona2',
+                text: 'Glasgow',
                 isCorrect: false
             },
             {
-                text: 'Madrid',
+                text: 'Cardiff',
                 isCorrect: false
             },
             {
@@ -33,7 +37,7 @@ let quizQuestions = [ {
                 isCorrect: true
             },
             {
-                text: 'London',
+                text: 'Manchester',
                 isCorrect: false
             }
         ]
@@ -41,11 +45,11 @@ let quizQuestions = [ {
     {
         imageSrc: "assets/images/london-bridge.jpg",
         options: [{
-                text: 'Barcelona3',
+                text: 'Liverpool',
                 isCorrect: false
             },
             {
-                text: 'Madrid',
+                text: 'Belfast',
                 isCorrect: false
             },
             {
@@ -61,7 +65,7 @@ let quizQuestions = [ {
     {
         imageSrc: "assets/images/madrid.jpeg",
         options: [{
-                text: 'Barcelona4',
+                text: 'Valenica',
                 isCorrect: false
             },
             {
@@ -69,11 +73,11 @@ let quizQuestions = [ {
                 isCorrect: true
             },
             {
-                text: 'Dublin',
+                text: 'Lisbon',
                 isCorrect: false
             },
             {
-                text: 'London',
+                text: 'Porto',
                 isCorrect: false
             }
         ]
@@ -81,7 +85,7 @@ let quizQuestions = [ {
     {
         imageSrc: "assets/images/brazil.jpg",
         options: [{
-                text: 'Barcelona5',
+                text: 'Sao Paulo',
                 isCorrect: false
             },
             {
@@ -89,11 +93,11 @@ let quizQuestions = [ {
                 isCorrect: false
             },
             {
-                text: 'Brazil',
+                text: 'Rio de Janeiro',
                 isCorrect: true
             },
             {
-                text: 'London',
+                text: 'Buenos Aires',
                 isCorrect: false
             }
         ]
@@ -101,19 +105,19 @@ let quizQuestions = [ {
     {
         imageSrc: "assets/images/italy-small.jpg",
         options: [{
-                text: 'Italy',
+                text: 'Rome',
                 isCorrect: true
             },
             {
-                text: 'Madrid',
+                text: 'Florence',
                 isCorrect: false
             },
             {
-                text: 'Dublin',
+                text: 'Vienna',
                 isCorrect: false
             },
             {
-                text: 'London',
+                text: 'Pompeii',
                 isCorrect: false
             }
         ]
@@ -121,19 +125,19 @@ let quizQuestions = [ {
     {
         imageSrc: "assets/images/france.jpg",
         options: [{
-                text: 'France',
+                text: 'Paris',
                 isCorrect: true
             },
             {
-                text: 'Madrid',
+                text: 'Toulouse',
                 isCorrect: false
             },
             {
-                text: 'Dublin',
+                text: 'Berlin',
                 isCorrect: false
             },
             {
-                text: 'London',
+                text: 'Munich',
                 isCorrect: false
             }
         ]
@@ -151,7 +155,8 @@ let userAnswers = [];
 let questionsAnswered = 0;
 const maxQuestions = 3;
 let questionsAsked = [];
-
+const highScoresList = document.getElementById('high-score-list');
+let highScores = getCookie(HIGH_SCORE_COOKIE);
 let currentQuestion = {};
 let questionCounter = document.querySelector('#question-counter');
 let counter = 1;
@@ -166,17 +171,35 @@ const username = document.querySelector('#username');
 const saveUserName = document.querySelector('#enter-username-btn');
 const finalScore = document.querySelector('#final-score');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
-// Containers 
 let homeBox = document.querySelector('.home-container');
 let quizBox = document.querySelector('.quiz-container');
 let rulesBox = document.querySelector('.rules-container');
 let highScoresBox = document.querySelector('.high-scores');
 let gameOverBox = document.querySelector('.quiz-complete');
 
+finalScore.textContent = mostRecentScore;
+
+// Event Listeners
+username.addEventListener('keyup', () => {
+    saveUserName.disabled = !username.value;
+});
+
+optionBtns.forEach(function (button) {
+    button.addEventListener('click', calculateAnswer);
+});
+
+/**
+ * Opens High Scores Page.
+ */
+
 function showQuizHighScores() {
     homeBox.classList.add('hide');
     highScoresBox.classList.remove('hide');
 }
+
+/**
+ * Closes High Scores Page.
+ */
 
 function closeQuizHighScores() {
     homeBox.classList.remove('hide');
@@ -184,11 +207,19 @@ function closeQuizHighScores() {
     console.log('closehighscores');
 }
 
+/**
+ * Opens Rules Page.
+ */
+
 function showQuizRules() {
     homeBox.classList.add('hide');
     rulesBox.classList.remove('hide');
     console.log('openrules');
 }
+
+/**
+ * Closes Rules Page.
+ */
 
 function closeQuizRules() {
     homeBox.classList.remove('hide');
@@ -196,19 +227,30 @@ function closeQuizRules() {
     console.log('closerules');
 }
 
+/**
+ * Resets quiz
+ */
+
 function gameOver() {
     restartGame();
 }
+
+/**
+ * Takes user back to home page.
+ */
 
 function closeGameOverBox() {
     homeBox.classList.remove('hide');
     gameOverBox.classList.add('hide');
 }
 
+/**
+ * Starts the quiz.
+ */
+
 function beginQuiz() {
     homeBox.classList.add('hide');
     quizBox.classList.remove('hide');
-    console.log('beginquiz');
     correctUserAnswers = 0;
     availableQuestions = [...quizQuestions];
     secondsDisplay.textContent;
@@ -218,6 +260,10 @@ function beginQuiz() {
     startTimer();
 }
 
+/**
+ * Resets the quiz after completion
+ */
+
 function quizComplete() {
     closeGameOverBox();
     resetOptionBtns();
@@ -225,39 +271,45 @@ function quizComplete() {
     secondsDisplay.textContent = 10;
     clearInterval(timerInterval);
     resetScore();
-    console.log('quiz complete')
 }
+/**
+ * Increments and displays the question counter
+ */
 
 function quizCounter() {
     counter++;
     questionCounter.innerText = counter;
     resetTimer();
 
-
+// Checks if the quiz is finished.
     if (counter > 5) {
         quizBox.classList.add('hide');
         gameOverBox.classList.remove('hide');
-        console.log('gameover');
         document.getElementById('final-score').innerHTML = score;
         return;
-
-
     }
 }
+
+/**
+ * Resets the question counter.
+ */
 
 function resetCounter() {
     counter = 1;
     questionCounter.innerText = counter;
-    console.log('counterreset')
 }
+
+/**
+ * Resets the score.
+ */
 
 function resetScore() {
     score = 0;
-    console.log('userscorereset');
 }
 
-// attaches event listener to each option button and envokes check answer function when clicked
-
+/**
+ * Generates new question and updates answer options.
+ */
 
 function generateNewQuestion() {
     if (quizQuestions.length < availableQuestions.length <= 3 ) {
@@ -265,6 +317,8 @@ function generateNewQuestion() {
 
         let shuffleQuestions = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = shuffleQuestions;
+
+        // displays the image associated with the question
         let question = availableQuestions[currentQuestion];
         quizImage.src = question.imageSrc;
         availableQuestions.splice(currentQuestion, 1);
@@ -272,57 +326,56 @@ function generateNewQuestion() {
             optionBtns[i].textContent = '';
         }
 
+        // Generates answer options for each question and displays them on screen.
         for (let i = 0; i < question.options.length; i++) {
             optionBtns[i].textContent = question.options[i].text;
             optionBtns[i].dataset.correct = question.options[i].isCorrect;
         }
     }
-
-
 }
 
-// Save high score
 
 
-finalScore.textContent = mostRecentScore;
-
-username.addEventListener('keyup', () => {
-    console.log(username.value);
-    saveUserName.disabled = !username.value;
-});
-
-optionBtns.forEach(function (button) {
-    button.addEventListener('click', calculateAnswer);
-});
+/**
+ * Stores high scores as a cookie
+ */
 
 let saveHighScores = e => {
-    console.log('clicked The save button');
     e.preventDefault();
      userScore =  mostRecentScore ;
      let today = new Date();
 
+     // retrives any existing scores. If there are none it sets value to an empty array.
      let highScores = getCookie(HIGH_SCORE_COOKIE) || [];
      highScores = [...highScores, {name: username.value, score:score}]
      highScores.sort((a, b) => b.score - a.score);
+     // The array is then sorted in decending order and extracts the five highest scores.
+
      let newHighScores = highScores.splice(0, 5);
-     console.log(highScores);
         setCookie(HIGH_SCORE_COOKIE, newHighScores, today.getDate()+30)
         window.location.assign('index.html');
-
 }
 
-// highscores list
+/**
+ * Stores data in browser as a cookie.
+ * Stores the cookie name, value and when it will expire.
+ * JSON is used to convert the value into text format.
+ */
+
 function setCookie(cookieName, value, expireyDate) {
     let jsonValue= JSON.stringify(value);
-    console.log(jsonValue)
     document.cookie = `${cookieName}=${jsonValue}; expires=${expireyDate}; path=/`;
 }
 
+/**
+ * Retrives the value of a specified cookie from browser's cookies. 
+ * Loops through all cookies in browser and finds cookie that matches the specific cookie name.
+ * Returns an empty string if there's no match.
+ */
+
 function getCookie(cookieName) {
-    console.log("getCookie ran")
     var name = cookieName + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
-    console.log(decodedCookie);
     var cookieArray = decodedCookie.split(';');
     for(var i = 0; i < cookieArray.length; i++) {
       var cookie = cookieArray[i];
@@ -336,13 +389,19 @@ function getCookie(cookieName) {
     return "";
   }
 
-const highScoresList = document.getElementById('high-score-list');
-let highScores = getCookie(HIGH_SCORE_COOKIE);
-console.log(JSON.parse(localStorage.getItem('highScores')) || [])
+/**
+ * Creates a HTML list of high scores. 
+ * Map method generates a HTML list by iterating through each score object in array.
+ */
+
 highScoresList.innerHTML = highScores
     .map(score => {
-    return `<li class = "">${score.name} ${score.score}</li>`;
+    return `<li>${score.name} ${score.score}</li>`;
 });
+
+/**
+ * Checks if user selects correct answer.
+ */
 
 function calculateAnswer(event) {
     let selectedOption = event.target;
@@ -361,20 +420,24 @@ function calculateAnswer(event) {
         }
         button.disabled = true;
     });
-
-
 }
+
+/**
+ * Gets a new question for the user.
+ */
 
 function nextQuestion() {
     secondsDisplay.textContent = 10;
     startTimer();
     generateNewQuestion();
     resetOptionBtns();
-    console.log('next btn')
     quizCounter();
 
 }
 
+/**
+ * Resets the option buttons.
+ */
 
 function resetOptionBtns() {
     optionBtns.forEach(button => {
@@ -384,6 +447,10 @@ function resetOptionBtns() {
     });
 }
 
+/**
+ * Reverts the game back to original state.
+ */
+
 function restartGame() {
     beginQuiz();
     resetOptionBtns();
@@ -391,8 +458,11 @@ function restartGame() {
     resetCounter();
     secondsDisplay.textContent = 10;
     clearInterval(timerInterval);
-    console.log('restartquiz')
 }
+
+/**
+ * The disableAnswerBtn function disables all the answer buttons on the page when called.
+ */
 
 function disableAnswerBtn() {
     optionBtns.forEach((btn) => {
@@ -400,14 +470,23 @@ function disableAnswerBtn() {
     });
 }
 
+/**
+ * Timer Function
+ * Inspired by members of the Slack community
+ */
+
 function startTimer() {
     timeRemaining = 10;
     timerInterval = setInterval(function () {
         countdown();
         secondsDisplay.textContent = timeRemaining;
     }, 1000);
-    console.log('start timer')
 }
+
+/**
+ * Timer Countdown Function
+ * Inspired by members of the Slack community
+ */
 
 function countdown() {
     if (timeRemaining === 0) {
@@ -416,10 +495,10 @@ function countdown() {
     } else {
         timeRemaining--;
     }
-
-    console.log('countdown')
 }
-
+/**
+ * Reset Timer Function
+ */
 function resetTimer() {
     clearInterval(timerInterval);
 }
