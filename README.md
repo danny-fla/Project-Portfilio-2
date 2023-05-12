@@ -160,3 +160,50 @@ Chrome DevTools' Lightjouse was used to test the site's performance, accessibili
 ## Accessibility Testing
 
 The color contrast of the website was tested by using A11y.
+
+## Responsive Testing
+
+Picture This was tested across different devices and also by using The Responsive Design Checker website.
+
+## Manual Testing
+
+- Home Page
+
+    - Confirmed that the "Let's Go!" button will start the quiz.
+    - Confirmed that the "High Scores" button will take the user to the leaderboard.
+    - Confirmed that the "Rule" button will take the user to the quiz rules page.
+
+- Quiz Page 
+
+    - Confirmed that the quiz generates a question at the beginning of the quiz and when the user moves onto the next question.
+    - Confirmed that the option button turns green if corect and red if incorrect.
+    - Confirmed that the timer will begion its countdown at the beginning of the quiz and will restart when the user moves on to the next question.
+    - Confirmed that the timer will stop it countdown at zero and disable the option buttons.
+    - Confirmed that the question counter will incremement by one for each question asked.
+
+- Quiz Completion Page
+
+    - Confirmed that the page will appear when the user completes the quiz.
+    - Confirmed that the user can enter their name into the input box.
+    - Confirmed that the user's score will be displayed.
+    - Confirmed that the "Save" button will no longer be disabled once a valid input is entered.
+
+- High Scores Page
+
+    - Confirmed that the user's name and score will be displayed here.
+    - Confirmed that only the top five scores will be displayed.
+    - Confirmed that the home button will redirect the user to the "Home Page".
+
+- Rules Page 
+     
+     - Confirmed that the rules of the quiz will be displayed here.
+     - Confirmed that the home button will redirect the user to the "Home Page".
+
+# Deployment 
+
+Picture This! was deployed to GitHub pages The steps to deploy are: 
+    
+- In the GitHub repository select Settings.
+- Select the source tab, the select the branch titled "Main" and in the dropdown menu select the folder titled "Root".
+- Select "Save".
+
