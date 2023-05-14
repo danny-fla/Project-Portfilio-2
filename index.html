@@ -21,7 +21,7 @@
 
     <section class="home-container " id="home-container">
         <div class="quiz-home-page" id="quiz-home-page">
-             <h1>Welcome to Picture This!</h1>
+            <h2 id="home-text">Welcome to Picture This!</h2>
             <p>All you have to do is match the landmark to the correct option</p>
             <div class="home-btn-container">
                 <button class="button begin-quiz-button" onclick="beginQuiz()">Let's Go!</button>
@@ -33,7 +33,7 @@
     </section>
     <!-- Quiz Rules Page-->
 
-    <section class="rules-container hide" id="rules-container">
+    <div class="rules-container hide" id="rules-container">
         <div class="quiz-rules-page" id="quiz-rules-page">
             <h2>How To Play:</h2>
             <h3>Good at geography?</h3>
@@ -49,18 +49,18 @@
             <button aria-label="Home" class="button home-button" onclick="closeQuizRules()">Home</button>
         </div>
 
-    </section>
+    </div>
     <!--Quiz Page -->
-    <section class="quiz-container hide" id="quiz-container">
+    <div class="quiz-container hide" id="quiz-container">
         <div class="quiz-game-page" id="quiz-game-page">
             <div class="nav-bar">
-                 <div class="timer"><i class="fa-solid fa-stopwatch"></i>
+                <div class="timer"><i class="fa-solid fa-stopwatch"></i>
                     <span id="seconds">10</span></div>
                 <div id="current-question"><i class="fa-solid fa-question"></i><span id="question-counter">1</span>
                 </div>
-                </div>
+            </div>
             <div class="question-container" id="question-container">
-                <img id="landmark">
+                <img id="landmark" alt="Iconic Landmark Image">
             </div>
             <hr>
             <div class="options-container" id="options-container">
@@ -70,40 +70,41 @@
                 <button aria-label="Option 4" class="button option-btn option-4-btn">London</button>
             </div>
             <div class="next-retry-container" id="next-retry-container">
-                <button aria-label="Restart Quiz" class="button retry-button navigation-btns"><i class="fa-solid fa-rotate-left"
-                        onclick="restartGame()"></i></button>
+                <button aria-label="Restart Quiz" class="button retry-button navigation-btns"><i
+                        class="fa-solid fa-rotate-left" onclick="restartGame()"></i></button>
                 <button aria-label="Next Question" class="button next-button navigation-btns" id="question-submit"
                     onclick="nextQuestion()"><i class="fa-sharp fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
-    </section>
+    </div>
     <!-- End Of Quiz Page-->
 
 
-    <section class="quiz-complete hide " id="quiz-complete">
+    <div class="quiz-complete hide " id="quiz-complete">
         <div>
             <h1>Picture This!</h1>
         </div>
         <div class="results-container" id="results-container">
-            <h1 id="final-score"></h1>
+            <h1 id="final-score">0</h1>
             <form>
                 <input type="text" name="username" id="username" placeholder="username">
-                <button type="submit"  class="button" id="enter-username-btn" onclick="saveHighScores(event)" disabled>Save</button>
+                <button type="submit" class="button" id="enter-username-btn" onclick="saveHighScores(event)"
+                    disabled>Save</button>
                 <button aria-label="Home" class="button home-button" onclick="quizComplete()">Home</button>
             </form>
         </div>
-    </section>
+    </div>
     <!--High Scores Page-->
 
 
-    <section class="high-scores hide" id="high-scores">
+    <div class="high-scores hide" id="high-scores">
         <div>
             <ul id="high-score-list">
             </ul>
         </div>
 
         <button aria-label="Home" class="button home-button" onclick="closeQuizHighScores()">Home</button>
-    </section>
+    </div>
 </body>
 
 </html>

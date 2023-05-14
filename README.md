@@ -137,7 +137,7 @@ The font used for Picture This! was Dongle. It was chosen for its rounded frame 
 
 ## Quiz Difficulty Level
 
-- This could be acheived by including an extra page before the user begins the quiz, where they must choose the difficluty level of the game e.g. easy, medium, hard.
+- This could be achieved by including an extra page before the user begins the quiz, where they would be presented with the opportunity to choose the level of difficluty e.g. easy, medium, hard.
 - A way to increase the quiz difficulty is to adjust the length of time the user has to make a decision for each question.
 
 # Technologies Used
@@ -185,7 +185,7 @@ Picture This was tested across different devices and also by using The Responsiv
 
     - Confirmed that the quiz generates a question at the beginning of the quiz and when the user moves onto the next question.
     - Confirmed that the option button turns green if corect and red if incorrect.
-    - Confirmed that the timer will begion its countdown at the beginning of the quiz and will restart when the user moves on to the next question.
+    - Confirmed that the timer will begin its countdown at the beginning of the quiz and will restart when the user moves on to the next question.
     - Confirmed that the timer will stop it countdown at zero and disable the option buttons.
     - Confirmed that the question counter will incremement by one for each question asked.
 

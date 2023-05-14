@@ -2,7 +2,7 @@
  * Questions for quiz
  */
 
-let quizQuestions = [ {
+let quizQuestions = [{
         imageSrc: "assets/images/sagrada-familia.webp",
         options: [{
                 text: 'Barcelona',
@@ -81,7 +81,7 @@ let quizQuestions = [ {
                 isCorrect: false
             }
         ]
-     },
+    },
     {
         imageSrc: "assets/images/brazil.jpg",
         options: [{
@@ -155,14 +155,13 @@ let highScores = getCookie(HIGH_SCORE_COOKIE);
 let currentQuestion = {};
 let questionCounter = document.querySelector('#question-counter');
 let counter = 1;
-let userScore = document.querySelector('#high-score-h1');
+let userScore = document.querySelector('#final-score');
 const secondsDisplay = document.querySelector('#seconds');
 let timerInterval;
 let optionBtns = document.querySelectorAll('.option-btn');
 let quizImage = document.querySelector('#landmark');
 const username = document.querySelector('#username');
 const saveUserName = document.querySelector('#enter-username-btn');
-const finalScore = document.querySelector('#final-score');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
 let homeBox = document.querySelector('.home-container');
 let quizBox = document.querySelector('.quiz-container');
@@ -170,7 +169,6 @@ let rulesBox = document.querySelector('.rules-container');
 let highScoresBox = document.querySelector('.high-scores');
 let gameOverBox = document.querySelector('.quiz-complete');
 
-finalScore.textContent = mostRecentScore;
 
 // Event Listeners
 username.addEventListener('keyup', () => {
@@ -197,7 +195,7 @@ function showQuizHighScores() {
 function closeQuizHighScores() {
     homeBox.classList.remove('hide');
     highScoresBox.classList.add('hide');
-    console.log('closehighscores');
+    
 }
 
 /**
@@ -207,7 +205,7 @@ function closeQuizHighScores() {
 function showQuizRules() {
     homeBox.classList.add('hide');
     rulesBox.classList.remove('hide');
-    console.log('openrules');
+    
 }
 
 /**
@@ -217,7 +215,6 @@ function showQuizRules() {
 function closeQuizRules() {
     homeBox.classList.remove('hide');
     rulesBox.classList.add('hide');
-    console.log('closerules');
 }
 
 /**
@@ -274,7 +271,7 @@ function quizCounter() {
     questionCounter.innerText = counter;
     resetTimer();
 
-// Checks if the quiz is finished.
+    // Checks if the quiz is finished.
     if (counter > 5) {
         quizBox.classList.add('hide');
         gameOverBox.classList.remove('hide');
@@ -305,7 +302,7 @@ function resetScore() {
  */
 
 function generateNewQuestion() {
-    if (quizQuestions.length < availableQuestions.length <= 3 ) {
+    if (quizQuestions.length < availableQuestions.length <= 3) {
 
 
         let shuffleQuestions = Math.floor(Math.random() * availableQuestions.length);
@@ -335,18 +332,21 @@ function generateNewQuestion() {
 
 let saveHighScores = e => {
     e.preventDefault();
-     userScore =  mostRecentScore ;
-     let today = new Date();
+    userScore = mostRecentScore;
+    let today = new Date();
 
-     // retrives any existing scores. If there are none it sets value to an empty array.
-     let highScores = getCookie(HIGH_SCORE_COOKIE) || [];
-     highScores = [...highScores, {name: username.value, score:score}];
-     highScores.sort((a, b) => b.score - a.score);
-     // The array is then sorted in decending order and extracts the five highest scores.
+    // retrives any existing scores. If there are none it sets value to an empty array.
+    let highScores = getCookie(HIGH_SCORE_COOKIE) || [];
+    highScores = [...highScores, {
+        name: username.value,
+        score: score
+    }];
+    highScores.sort((a, b) => b.score - a.score);
+    // The array is then sorted in decending order and extracts the five highest scores.
 
-     let newHighScores = highScores.splice(0, 5);
-        setCookie(HIGH_SCORE_COOKIE, newHighScores, today.getDate()+30);
-        window.location.assign('index.html');
+    let newHighScores = highScores.splice(0, 5);
+    setCookie(HIGH_SCORE_COOKIE, newHighScores, today.getDate() + 30);
+    window.location.assign('index.html');
 };
 
 /**
@@ -356,7 +356,7 @@ let saveHighScores = e => {
  */
 
 function setCookie(cookieName, value, expireyDate) {
-    let jsonValue= JSON.stringify(value);
+    let jsonValue = JSON.stringify(value);
     document.cookie = `${cookieName}=${jsonValue}; expires=${expireyDate}; path=/`;
 }
 
@@ -370,28 +370,27 @@ function getCookie(cookieName) {
     var name = cookieName + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var cookieArray = decodedCookie.split(';');
-    for(var i = 0; i < cookieArray.length; i++) {
-      var cookie = cookieArray[i];
-      while (cookie.charAt(0) == ' ') {
-        cookie = cookie.substring(1);
-      }
-      if (cookie.indexOf(name) == 0) {
-        return JSON.parse(cookie.substring(name.length, cookie.length));
-      }
+    for (var i = 0; i < cookieArray.length; i++) {
+        var cookie = cookieArray[i];
+        while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(name) == 0) {
+            return JSON.parse(cookie.substring(name.length, cookie.length));
+        }
     }
     return "";
-  }
+}
 
 /**
  * Creates a HTML list of high scores. 
  * Map method generates a HTML list by iterating through each score object in array.
  */
 
-highScoresList.innerHTML = highScores
-    .map(score => {
-    return `<li>${score.name} ${score.score}</li>`;
-});
 
+highScores.map(score => {
+        highScoresList.innerHTML += `<li>${score.name} ${score.score}</li>`;
+    });
 /**
  * Checks if user selects correct answer.
  */
@@ -495,4 +494,3 @@ function countdown() {
 function resetTimer() {
     clearInterval(timerInterval);
 }
-

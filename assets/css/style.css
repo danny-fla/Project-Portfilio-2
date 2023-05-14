@@ -76,11 +76,6 @@ header h1 {
     background-color: yellow;
 }
 
-hr {
-    border: 1px solid black;
-    width: 100%;
-}
-
 .rules-container {
     padding: 5px 10px;
     font-size: 1em;
@@ -94,7 +89,7 @@ hr {
     display: none;
 }
 
-.quiz-home-page h1 {
+.quiz-home-page h2 {
     font-weight: bold;
     font-size: 50px;
     display: flex;
@@ -114,11 +109,11 @@ hr {
     top: 9em;
     right: 0;
     left: 0;
-    font-size:larger;
+    font-size: larger;
 }
 
 .home-btn-container {
-    
+
     display: flex;
     flex-direction: column;
     margin-top: 150px;
@@ -139,7 +134,7 @@ hr {
 
 .button {
     padding: 0.2em 1.4em;
-    margin:0rem 0.5rem 0.5rem 0rem;
+    margin: 0rem 0.5rem 0.5rem 0rem;
     border-radius: 1.5rem;
     box-sizing: border-box;
     font-family: lato;
@@ -155,32 +150,33 @@ hr {
     left: 1em;
     height: 60%;
     overflow: hidden;
-    
-    
 }
 
 #landmark {
-   height: 100%;
-   width: 100%;
-   object-fit: contain;
-   
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+
 }
+
 
 .options-container {
     position: absolute;
-    top: 20em;
+
     right: 1em;
     left: 1em;
+    bottom: 4em;
 }
 
 .next-retry-container {
     position: absolute;
-    top: 23em;
     right: 1em;
     left: 1em;
+    bottom: 1em;
 }
 
-.retry-button, .next-button {
+.retry-button,
+.next-button {
     background-color: cyan;
 }
 
@@ -204,16 +200,12 @@ form {
     align-items: center;
 }
 
-input{
+input {
     box-shadow: 0 0 2px 0.5px;
 }
 
-#user-score{
-    font-size: x-large;
-    font-weight: 600;
-}
-
-.results-container input, button {
+.results-container input,
+button {
     margin: 5px 0;
     padding: 5px 0 5px;
     text-align: center;
@@ -241,9 +233,9 @@ input{
     font-family: Arial, sans-serif;
 }
 
-.high-scores li{
+.high-scores li {
     font-size: large;
-    
+
 }
 
 .high-scores {
@@ -264,151 +256,97 @@ input{
 
 /* media queries */
 
- @media screen and (max-width:1024px){
-    
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
     body {
         padding: 0.5rem;
     }
 
     header h1 {
-        font-size: 5rem;
-    }
-    
-    .quiz-home-page h1{
-        font-size: 4rem;
+        font-size: 3em;
     }
 
-    .quiz-home-page p {
-        position: absolute;
-        top: 9rem;
-        padding: 5rem;
-       font-size: 1.8rem;
-    }
-
-    .home-btn-container {
-        margin-top: 16rem;
-    }
-
-    .home-btn-container button {
-        margin-bottom: 5px;
-        padding: 0.5em 1.2em;
-    }
-
-    .quiz-container {
+    .home-container {
         height: 70%;
     }
 
-    .question-container {
-        top: 3.5em;
+    .quiz-home-page h2 {
+        top: 1em;
+        font-size: 3.5rem;
     }
 
-    .options-container {
-        margin-top: 5rem;
-    }
-
-    .next-retry-container {
-        margin-top: 4.5rem;
-    }  
-
-    .rules-container {
-        padding: 5px 5px;
-        font-size: large;
-    }
-
-    .option-btn {
-        margin: 0.3rem;
-    }
-
-} 
-
- @media screen and (max-width: 480px) {
-   
-
-    body {
-        padding: 0.5rem;
-    }
-
-    header h1 {
-        font-size: 5rem;
-    }
-
-    .quiz-home-page h1{
-        font-size: 2rem;
-    }
-
-    .nav-bar {
-        
-        padding: 0.5rem;
-    }
-
-    .nav-bar i {
-        margin: 0.2rem;
-    }
-
-    .home-btn-container {
-        margin-top: 40px;
-    }
-
-    .home-btn-container button {
-        margin-bottom: 5px;
-        padding: 0.5em 1.2em;
-    }
-
-    .quiz-home-page p {
-        display: none;
-    }
-
-    .quiz-container {
-        height: 90%;
-    }
-
-    header {
-        display: none;
-    }
-    .question-container {
-        top: 5em;
-    }
-    .rules-container {
-        padding: 5px 5px;
-        font-size: large;
-    }
-
-    .options-container {
-        display: flex;
-        flex-direction: column;
-        margin-top: 9rem;
-
-    }
-
-    .option-btn {
-        margin: 0.3rem;
-    }
-
-    .next-retry-container {
-        margin-top: 14rem;
-    }  
-}
-
-
- @media screen and (max-width:768px){
-    
-    body {
-        padding: 0.5rem;
-    }
-
-    header h1 {
-        font-size: 5rem;
-    }
-    
-    .quiz-home-page h1{
-        font-size: 4rem;
-    }
 
     .quiz-home-page p {
         position: absolute;
-        top: 10rem;
-        padding: 5rem;
-       font-size: 1.8rem;
+        top: 5em;
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .home-btn-container {
+        margin-top: 12rem;
+    }
+
+    .home-btn-container button {
+        margin-bottom: 10px;
+    }
+
+    .quiz-container {
+        height: 80%;
+        margin-top: 30px;
+    }
+
+    .question-container {
+        top: 3.3rem;
+    }
+
+
+    .options-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 150px;
+
+    }
+
+    .option-btn {
+        height: 2rem;
+        width: 12rem;
+        margin-bottom: 10px;
+        padding: 0.3rem 0.7rem;
+    }
+
+    .next-retry-container {
+        margin-top: 8.6rem;
+
+    }
+}
+
+@media screen and (min-width:480px) and (max-width: 768px) {
+
+    body {
+        padding: 0.5rem;
+    }
+
+    header h1 {
+        font-size: 4em;
+    }
+
+    .home-container {
+        height: 70%;
+    }
+
+    .quiz-home-page h2 {
+        position: absolute;
+        font-size: 2rem;
+    }
+
+
+    .quiz-home-page p {
+        position: absolute;
+        top: 8rem;
+        padding: 1rem;
+        font-size: 1.2rem;
     }
 
     .home-btn-container {
@@ -421,245 +359,145 @@ input{
     }
 
     .quiz-container {
+        height: 80%;
+    }
+
+    .question-container {
+        top: 1rem;
+
+    }
+
+    .options-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0rem;
+    }
+
+    .option-btn {
+        margin-top: 0.7rem;
+    }
+
+    .next-retry-container {
+        margin-top: 8.3rem;
+
+
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+
+
+    body {
+        padding: 0.5rem;
+    }
+
+    header h1 {
+        font-size: 4em;
+    }
+
+    .home-container {
+        height: 70%;
+    }
+
+    .quiz-home-page h2 {
+        position: absolute;
+        top: 5rem;
+        font-size: 2.5rem;
+    }
+
+    .quiz-home-page p {
+        position: absolute;
+        top: 12rem;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .quiz-container {
         height: 70%;
     }
 
     .question-container {
-        top: 5em;
-    }
-    .rules-container {
-        padding: 5px 5px;
-        font-size: large;
-    }
-
-    .options-container {
-        margin-top: 19rem;
-
-    }
-
-    .option-btn {
-        margin: 0.3rem;
-    }
-
-    .next-retry-container {
-        margin-top: 20rem;
-    }  
-} 
-
- @media screen and (max-width: 480px) {
-   
-
-    body {
-        padding: 0.5rem;
-    }
-
-    header h1 {
-        font-size: 5rem;
-    }
-
-    .quiz-home-page h1{
-        font-size: 2rem;
-    }
-
-    .nav-bar {
-        
-        padding: 0.5rem;
-    }
-
-    .nav-bar i {
-        margin: 0.2rem;
-    }
-
-    .home-btn-container {
-        margin-top: 40px;
-    }
-
-    .home-btn-container button {
-        margin-bottom: 5px;
-        padding: 0.5em 1.2em;
-    }
-
-    .quiz-home-page p {
-        display: none;
-    }
-
-    .quiz-container {
-        height: 90%;
-    }
-
-    header {
-        display: none;
-    }
-    .question-container {
-        top: 5em;
-    }
-    .rules-container {
-        padding: 5px 5px;
-        font-size: large;
+        top: 1rem;
     }
 
     .options-container {
         display: flex;
         flex-direction: column;
-        margin-top: 9rem;
-
     }
 
     .option-btn {
-        margin: 0.3rem;
+        margin-top: 0.7rem;
     }
 
     .next-retry-container {
-        margin-top: 14rem;
-    }  
+        margin-top: 8.3rem;
+    }
 }
 
-@media screen and (max-width: 360px){
-    
+@media screen and (max-width: 320px) {
+
     body {
         padding: 0.5rem;
+    }
+
+    body {
+        padding: 0.3rem;
+
     }
 
     header h1 {
-        font-size: 5rem;
+        font-size: 3em;
     }
 
-    .quiz-home-page h1{
-        font-size: 2rem;
+    .home-container {
+        height: 60%;
     }
 
-    .nav-bar {
-        
-        padding: 0.5rem;
-    }
-
-    .nav-bar i {
-        margin: 0.2rem;
-    }
-
-    .home-btn-container {
-        margin-top: 40px;
-    }
-
-    .home-btn-container button {
-        margin-bottom: 5px;
-        padding: 0.5em 1.2em;
-    }
-
-    .quiz-home-page p {
-        display: none;
-    }
-
-    .quiz-container {
-        height: 90%;
-    }
-
-    header {
-        display: none;
-    }
-    .question-container {
-        top: 5em;
-    }
-    .rules-container {
-        padding: 5px 5px;
-        font-size: large;
-    }
-
-    .options-container {
-        display: flex;
-        flex-direction: column;
-        margin-top: 9rem;
-
-    }
-
-    .option-btn {
-        margin: 0.3rem;
-    }
-
-    .next-retry-container {
-        margin-top: 14rem;
-    }  
-}
-
-@media screen and (max-width: 320px){
-    
-    body {
-        padding: 0.5rem;
-    }
-
-
-    .quiz-home-page h1{
+    .quiz-home-page h2 {
+        position: absolute;
+        top: 2.5rem;
         font-size: 1.5rem;
     }
 
-    .nav-bar {
-        
-        padding: 0.2rem;
-    }
-
-    .nav-bar i {
-        margin: 0.2rem;
+    .quiz-home-page p {
+        position: absolute;
+        top: 9rem;
+        padding: 1rem;
+        font-size: 1rem;
     }
 
     .home-btn-container {
-        margin-top: 40px;
-    }
-
-    .home-btn-container button {
-        margin-bottom: 5px;
-        padding: 0.2em 1.2em;
-    }
-
-    .quiz-home-page p {
-        display: none;
+        margin-top: 11rem;
     }
 
     .quiz-container {
-        height: 90%;
+        height: 70%;
     }
 
-    header {
-        display: none;
-    }
     .question-container {
-        top: 1em;
-    }
-    .rules-container {
-        padding: 5px 5px;
-        font-size: large;
+        top: 1rem;
     }
 
     .options-container {
         display: flex;
         flex-direction: column;
-       position: absolute;
-       top: 4.5rem;
+
     }
 
     .option-btn {
-        margin: 0.3rem;
-        font-size: 0.7rem;
+        margin-top: 0.7rem;
     }
 
     .next-retry-container {
-        margin-top: 14rem;
-        position: absolute;
-        top: 7rem;
-    }  
+        bottom: 1em;
 
-    .quiz-complete i {
-        display: none;
     }
 
-    .high-scores i {
-        display: none;
+    .navigation-btns {
+        padding: 4px;
     }
-    .high-scores {
-        height: 80%;
-    }
-    .high-scores button{
-       position: absolute;
-       top: 18rem;
-       font-size: small;
+
+    .rules-container ul {
+        font-size: 1rem;
     }
 }
