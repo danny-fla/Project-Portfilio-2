@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online Quiz Game">
     <meta name="keywords" content="quiz, game, fun">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.jpg">
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/js/script.js"></script>
     <script defer src="https://kit.fontawesome.com/0f739cc4b2.js" crossorigin="anonymous"></script>
@@ -24,9 +25,9 @@
             <h2 id="home-text">Welcome to Picture This!</h2>
             <p>All you have to do is match the landmark to the correct option</p>
             <div class="home-btn-container">
-                <button class="button begin-quiz-button" onclick="beginQuiz()">Let's Go!</button>
-                <button class="button high-score-button" onclick="showQuizHighScores()">High Score</button>
-                <button class="button rules-button" onclick="showQuizRules()">Rules</button>
+                <button class="button begin-quiz-button">Let's Go!</button>
+                <button class="button high-score-button">High Score</button>
+                <button class="button rules-button">Rules</button>
             </div>
         </div>
 
@@ -46,7 +47,7 @@
                 <li>There is a 10 second timer for each question!</li>
             </ul>
             <p>Good Luck!</p>
-            <button aria-label="Home" class="button home-button" onclick="closeQuizRules()">Home</button>
+            <button aria-label="Home" class="button home-button">Home</button>
         </div>
 
     </div>
@@ -70,10 +71,10 @@
                 <button aria-label="Option 4" class="button option-btn option-4-btn">London</button>
             </div>
             <div class="next-retry-container" id="next-retry-container">
-                <button aria-label="Restart Quiz" class="button retry-button navigation-btns"><i
-                        class="fa-solid fa-rotate-left" onclick="restartGame()"></i></button>
-                <button aria-label="Next Question" class="button next-button navigation-btns" id="question-submit"
-                    onclick="nextQuestion()"><i class="fa-sharp fa-solid fa-arrow-right"></i></button>
+                <button aria-label="Restart Quiz" class="button retry-button navigation-btns">
+                    <i class="fa-solid fa-rotate-left"></i></button>
+                <button aria-label="Next Question" class="button next-button navigation-btns" id="question-submit">
+                    <i class="fa-sharp fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
     </div>
@@ -90,7 +91,7 @@
                 <input type="text" name="username" id="username" placeholder="username">
                 <button type="submit" class="button" id="enter-username-btn" onclick="saveHighScores(event)"
                     disabled>Save</button>
-                <button aria-label="Home" class="button home-button" onclick="quizComplete()">Home</button>
+                <button aria-label="Home" class="button home-button">Home</button>
             </form>
         </div>
     </div>
@@ -103,7 +104,7 @@
             </ul>
         </div>
 
-        <button aria-label="Home" class="button home-button" onclick="closeQuizHighScores()">Home</button>
+        <button aria-label="Home" class="button home-button">Home</button>
     </div>
 </body>
 

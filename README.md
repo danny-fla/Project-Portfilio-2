@@ -157,6 +157,8 @@ Picutre This! was validated using W3C HTML validator and W3C CSS validator.
 
 ![CSS Validation](assets/images/css-validator.png)
 
+![HTML Validation](assets/images/html-validator.png)
+
 ## JSHint
 
 Javascript was validated using JSHint.
@@ -220,9 +222,17 @@ Picture This! was deployed to GitHub pages The steps to deploy are:
 - Background image was obtained from [fact.net](https://facts.net/)
 - Button styling was inspired from [fdossena.com](https://fdossena.com/?p=html5cool/buttons/i.frag)
 - Images used for quiz questions were obtained from various Google images soucres.
+- Timer was inspired from [stackoverflow.com](https://stackoverflow.com/questions/4435776/      simple-clock-that-counts-down-from-30-seconds-and-executes-a-function-afterward)
+- 
 - Idea to store and retrive information from browser cookies came from my friend Conor.
 - Timer and Countdown functions were inspired from Code Instuite's Slack community.
 
 # Acknowledgements
 
 I would like to thank my mentor, Code Instuite's Tutor Support, members of the Slack community for all their help and support throughout the creation of the site.
+
+
+# Bugs
+
+- Restart Quiz function, doesn't restart on first question. messes up timer.
+- Rules home button doesn't work.

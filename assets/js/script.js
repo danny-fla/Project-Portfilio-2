@@ -13,11 +13,11 @@ let quizQuestions = [{
                 isCorrect: false
             },
             {
-                text: 'Dublin',
+                text: 'Valenica',
                 isCorrect: false
             },
             {
-                text: 'London',
+                text: 'Alicante',
                 isCorrect: false
             }
         ]
@@ -142,10 +142,92 @@ let quizQuestions = [{
             }
         ]
     },
+    {
+        imageSrc: "assets/images/new-york.jpg",
+        options: [{
+                text: 'Los Angeles',
+                isCorrect: false
+            },
+            {
+                text: 'Tokyo',
+                isCorrect: false
+            },
+            {
+                text: 'New York',
+                isCorrect: true
+            },
+            {
+                text: 'Porto',
+                isCorrect: false
+            }
+        ]
+    },
+    {
+        imageSrc: "assets/images/vietnam.jpg",
+        options: [{
+                text: 'Thailand',
+                isCorrect: false
+            },
+            {
+                text: 'Bali',
+                isCorrect: false
+            },
+            {
+                text: 'India',
+                isCorrect: false
+            },
+            {
+                text: 'Vietnam',
+                isCorrect: true
+            }
+        ]
+    },
+    {
+        imageSrc: "assets/images/sydney.jpg",
+        options: [{
+                text: 'Brisbane',
+                isCorrect: false
+            },
+            {
+                text: 'Sydney',
+                isCorrect: true
+            },
+            {
+                text: 'Perth',
+                isCorrect: false
+            },
+            {
+                text: 'Darwin',
+                isCorrect: false
+            }
+        ]
+    },
+    {
+        imageSrc: "assets/images/washington.jpg",
+        options: [{
+                text: 'Boston',
+                isCorrect: false
+            },
+            {
+                text: 'Austin',
+                isCorrect: false
+            },
+            {
+                text: 'Washington',
+                isCorrect: true
+            },
+            {
+                text: 'Toronto',
+                isCorrect: false
+            }
+        ]
+    },
 ];
 
 
 // variables
+let timeRemaining = null;
+let saveHighScores = null;
 let score = 0;
 const HIGH_SCORE_COOKIE = "highScoreCookie";
 let correctUserAnswers = 0;
@@ -168,6 +250,12 @@ let quizBox = document.querySelector('.quiz-container');
 let rulesBox = document.querySelector('.rules-container');
 let highScoresBox = document.querySelector('.high-scores');
 let gameOverBox = document.querySelector('.quiz-complete');
+const startQuizButton = document.querySelector('.begin-quiz-button');
+const rulesButton = document.querySelector('.rules-button');
+const highScoreButton = document.querySelector('.high-score-button');
+const homeButton = document.querySelector('.home-button');
+const retryButton = document.querySelector('.retry-button');
+const nextButton = document.querySelector('.next-button');
 
 
 // Event Listeners
@@ -178,6 +266,19 @@ username.addEventListener('keyup', () => {
 optionBtns.forEach(function (button) {
     button.addEventListener('click', calculateAnswer);
 });
+
+startQuizButton.addEventListener("click", beginQuiz);
+
+rulesButton.addEventListener("click", showQuizRules);
+
+highScoreButton.addEventListener("click", showQuizHighScores);
+
+homeButton.addEventListener("click", handleHomeButtonClick);
+
+retryButton.addEventListener("click", restartGame);
+
+nextButton.addEventListener("click", nextQuestion);
+
 
 /**
  * Opens High Scores Page.
@@ -193,6 +294,7 @@ function showQuizHighScores() {
  */
 
 function closeQuizHighScores() {
+    console.log('close quiz scores')
     homeBox.classList.remove('hide');
     highScoresBox.classList.add('hide');
     
@@ -217,12 +319,10 @@ function closeQuizRules() {
     rulesBox.classList.add('hide');
 }
 
-/**
- * Resets quiz
- */
-
-function gameOver() {
-    restartGame();
+function handleHomeButtonClick() {
+    closeQuizRules();
+    closeQuizHighScores();
+    closeGameOverBox();
 }
 
 /**
@@ -243,25 +343,12 @@ function beginQuiz() {
     quizBox.classList.remove('hide');
     correctUserAnswers = 0;
     availableQuestions = [...quizQuestions];
-    // secondsDisplay.textContent;
     resetScore();
     generateNewQuestion();
     resetTimer();
     startTimer();
 }
 
-/**
- * Resets the quiz after completion
- */
-
-function quizComplete() {
-    closeGameOverBox();
-    resetOptionBtns();
-    resetCounter();
-    secondsDisplay.textContent = 10;
-    clearInterval(timerInterval);
-    resetScore();
-}
 /**
  * Increments and displays the question counter
  */
@@ -272,7 +359,7 @@ function quizCounter() {
     resetTimer();
 
     // Checks if the quiz is finished.
-    if (counter > 5) {
+    if (counter > 10) {
         quizBox.classList.add('hide');
         gameOverBox.classList.remove('hide');
         document.getElementById('final-score').innerHTML = score;
@@ -330,7 +417,7 @@ function generateNewQuestion() {
  * Stores high scores as a cookie
  */
 
-let saveHighScores = e => {
+saveHighScores = e => {
     e.preventDefault();
     userScore = mostRecentScore;
     let today = new Date();
@@ -444,12 +531,16 @@ function resetOptionBtns() {
  */
 
 function restartGame() {
+    console.log(restartGame, "<===restart game")
     beginQuiz();
     resetOptionBtns();
     startTimer();
     resetCounter();
-    secondsDisplay.textContent = 10;
+    secondsDisplay.textContent = timeRemaining;
     clearInterval(timerInterval);
+    console.log('restartQuiz button')
+
+    console.log(clearInterval)
 }
 
 /**
