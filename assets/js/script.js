@@ -532,7 +532,7 @@ function resetOptionBtns() {
 
 function restartGame() {
     console.log(restartGame, "<===restart game")
-    beginQuiz();
+    // beginQuiz();
     resetOptionBtns();
     startTimer();
     resetCounter();
