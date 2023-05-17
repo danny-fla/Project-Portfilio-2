@@ -512,7 +512,6 @@ function getCookie(cookieName) {
  * Creates a HTML list of high scores. 
  * Map method generates a HTML list by iterating through each score object in array.
  */
-console.log(document.cookie)
 highScores.map(score => {
     highScoresList.innerHTML += `<li>${score.name} ${score.score}</li>`;
 });
