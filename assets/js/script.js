@@ -294,10 +294,9 @@ function showQuizHighScores() {
  */
 
 function closeQuizHighScores() {
-    console.log('close quiz scores')
     homeBox.classList.remove('hide');
     highScoresBox.classList.add('hide');
-    
+
 }
 
 /**
@@ -307,7 +306,7 @@ function closeQuizHighScores() {
 function showQuizRules() {
     homeBox.classList.add('hide');
     rulesBox.classList.remove('hide');
-    
+
 }
 
 /**
@@ -476,8 +475,8 @@ function getCookie(cookieName) {
 
 
 highScores.map(score => {
-        highScoresList.innerHTML += `<li>${score.name} ${score.score}</li>`;
-    });
+    highScoresList.innerHTML += `<li>${score.name} ${score.score}</li>`;
+});
 /**
  * Checks if user selects correct answer.
  */
@@ -531,16 +530,11 @@ function resetOptionBtns() {
  */
 
 function restartGame() {
-    console.log(restartGame, "<===restart game")
-    // beginQuiz();
     resetOptionBtns();
     startTimer();
     resetCounter();
     secondsDisplay.textContent = timeRemaining;
     clearInterval(timerInterval);
-    console.log('restartQuiz button')
-
-    console.log(clearInterval)
 }
 
 /**

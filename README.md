@@ -2,7 +2,7 @@
 
 Picture This! is an online quiz for users to test how well they know iconic landmarks from around the world.
 
-Follow this link to check out the live site - <a href= "">
+Follow this link to check out the [live site](https://danny-fla.github.io/Project-Portfilio-2/)
 
 ![Device responsive](assets/images/responsive-screen.png)
 
@@ -25,6 +25,7 @@ Follow this link to check out the live site - <a href= "">
     - [Lighthouse Testing](<#lighthouse-testing>)
     - [Responsive Testing](<#responsive-testing>)
     - [Manual Testing](<#manual-testing>)
+- [Unresolved Bugs](<unresolved-bugs>)
 - [Deployment](<#deployment>)
 - [Credits](<#credits>)
 - [Acknowledgements](<#acknowledgements>)
@@ -161,9 +162,7 @@ Picutre This! was validated using W3C HTML validator and W3C CSS validator.
 
 ## JSHint
 
-Javascript was validated using JSHint.
-
-![]()
+Javascript was validated using JSHint. JSHint declared there was 52 warnings, which I discuss in more detail in Unresolved Bugs.
 
 ## Lighthouse Testing
 
@@ -177,37 +176,28 @@ Picture This was tested across different devices and also by using The Responsiv
 
 ## Manual Testing
 
-- Home Page
 
-    - Confirmed that the "Let's Go!" button will start the quiz.
-    - Confirmed that the "High Scores" button will take the user to the leaderboard.
-    - Confirmed that the "Rule" button will take the user to the quiz rules page.
+| Action        | Expected           | Actual  |
+| ------------- |:-------------:| -----:|
+| Clicked on the "Let's Go!" button.      | The quiz starts and the user is taken to the Quiz Page. | The quiz started successfully, and the Quiz Page loaded with the first question displayed |
+|Clicked on the "High Scores" button.   | The user is taken to the High Scores Page.      |  The High Scores Page loaded, displaying the user's name and their top five highest scores. |
+| Clicked on the "Rules" button. | The user is taken to the Rules Page.      |  The Rules Page loaded, displaying the rules and instructions for playing the quiz. |
+| The quiz generated a question at the beginning of the quiz. |  An image of a famous landmark and four possible options are displayed      |  The expected elements were displayed correctly, and the user could select an option. |
+| Selected an option | The selected option turns green if correct or red if incorrect. |  The selected option changed color correctly based on its correctness. |
+|The timer started its countdown at the beginning of the quiz. | The timer counts down from the set time for each question. |  The timer started correctly and counted down for each question.  |
+| The timer reached zero before selecting an option. | The timer stops, and all option buttons are disabled.   |  The timer stopped correctly, and the option buttons became disabled. |
+| The question counter incremented by one for each question asked. | The question counter increases with each new question.  |  The question counter incremented correctly for each question. |
+| Completed the quiz by answering all the questions. |The Quiz Completion Page is displayed. |  The Quiz Completion Page loaded, showing the user's final score and an input box. |
+|Entered a name in the input box.| The "Save" button becomes enabled. |The "Save" button activated correctly after entering a valid input.|
+| Accessed the High Scores Page. |The user's name and top five scores are displayed.| The High Scores Page loaded, showing the user's name and their top five highest scores.|
+| Clicked on the home button. |The user is redirected to the Home Page.|Clicking on the home button successfully returned the user to the Home Page.|
+| Accessed the Rules Page. |The rules of the quiz are displayed.|The Rules Page loaded correctly, displaying the rules and instructions for playing the quiz.|
 
-- Quiz Page 
+# Unresolved Bugs
 
-    - Confirmed that the quiz generates a question at the beginning of the quiz and when the user moves onto the next question.
-    - Confirmed that the option button turns green if corect and red if incorrect.
-    - Confirmed that the timer will begin its countdown at the beginning of the quiz and will restart when the user moves on to the next question.
-    - Confirmed that the timer will stop it countdown at zero and disable the option buttons.
-    - Confirmed that the question counter will incremement by one for each question asked.
+- As previously mentioned when my Javascript was passed through the JSHint Validator it declared there was 52 warning. These warnings are in relation to keywords and their availability in different JavaScript environments. However upon discussion with members of the Slack community and my mentor I was assured these warning can be ignored. In the intrest of full transparency I have included a screenshot.
 
-- Quiz Completion Page
-
-    - Confirmed that the page will appear when the user completes the quiz.
-    - Confirmed that the user can enter their name into the input box.
-    - Confirmed that the user's score will be displayed.
-    - Confirmed that the "Save" button will no longer be disabled once a valid input is entered.
-
-- High Scores Page
-
-    - Confirmed that the user's name and score will be displayed here.
-    - Confirmed that only the top five scores will be displayed.
-    - Confirmed that the home button will redirect the user to the "Home Page".
-
-- Rules Page 
-     
-     - Confirmed that the rules of the quiz will be displayed here.
-     - Confirmed that the home button will redirect the user to the "Home Page".
+[JSHint Validator](assets/images/jshint.png)
 
 # Deployment 
 
@@ -216,23 +206,39 @@ Picture This! was deployed to GitHub pages The steps to deploy are:
 - In the GitHub repository select Settings.
 - Select the source tab, the select the branch titled "Main" and in the dropdown menu select the folder titled "Root".
 - Select "Save".
+- It can take up to 5 minutes for the website to deploy.
+- Once deployed the page will automatically display the link to the site.
+
+## To Fork a GitHub repository, follow these steps:
+
+- Log in to your GitHub account and navigate to the repository you want to copy.
+- In the top-right corner of the repository page, you'll find a Fork button next to the repository name.
+- Click the Fork button to create a copy of the original repository in your GitHub account.
+
+## To clone a GitHub repository, follow these steps.
+
+- On the GitHub repository page, locate the "Code" button located below the repository name and to the right.
+- Click on the "Code" button to reveal the options. In the "Clone with HTTPS" section, you'll find a clipboard icon.
+- Click on the clipboard icon to copy the repository's URL to your clipboard.
+
+Now, open your preferred Integrated Development Environment (IDE) or Git Bash terminal and perform the following steps:
+
+- Choose the directory where you want to create the local copy of the repository.
+- Open your Git Bash terminal in that directory.
+Change the current working directory to the chosen directory using the appropriate command for your operating system.
+- Type git clone in the terminal, and then paste the copied URL from GitHub.
+- Press Enter to execute the command.
 
 # Credits
 
 - Background image was obtained from [fact.net](https://facts.net/)
 - Button styling was inspired from [fdossena.com](https://fdossena.com/?p=html5cool/buttons/i.frag)
 - Images used for quiz questions were obtained from various Google images soucres.
+- Images were compressed using [tinyPNG](https://tinypng.com/)
 - Timer was inspired from [stackoverflow.com](https://stackoverflow.com/questions/4435776/      simple-clock-that-counts-down-from-30-seconds-and-executes-a-function-afterward)
-- 
 - Idea to store and retrive information from browser cookies came from my friend Conor.
 - Timer and Countdown functions were inspired from Code Instuite's Slack community.
 
 # Acknowledgements
 
 I would like to thank my mentor, Code Instuite's Tutor Support, members of the Slack community for all their help and support throughout the creation of the site.
-
-
-# Bugs
-
-- Restart Quiz function, doesn't restart on first question. messes up timer.
-- Rules home button doesn't work.

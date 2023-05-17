@@ -1,5 +1,8 @@
+/* Google Font */
+
 @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Lato&display=swap');
 
+/* Global Styles */ 
 
 * {
     margin: 0;
@@ -31,6 +34,29 @@ header h1 {
     font-size: 3.5rem;
 }
 
+.button {
+    padding: 0.2em 1.4em;
+    margin: 0rem 0.5rem 0.5rem 0rem;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    font-family: lato;
+    font-weight: bold;
+    background-color: yellow;
+    cursor: pointer;
+}
+
+.correct {
+    background-color: green;
+    color: white;
+}
+
+.incorrect {
+    background-color: red;
+    color: white;
+}
+
+/* Container */ 
+
 .home-container,
 .rules-container,
 .quiz-container,
@@ -53,54 +79,7 @@ header h1 {
     margin: 20px auto;
 }
 
-.nav-bar {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    margin: 10px 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    font-size: x-large;
-}
-
-.nav-bar i {
-    color: black;
-    font-size: 16px;
-    padding: 8px;
-    cursor: pointer;
-}
-
-.nav-bar i:hover {
-    background-color: yellow;
-}
-
-.rules-container {
-    padding: 5px 10px;
-    font-size: 1em;
-}
-
-.rules-container ul {
-    list-style-type: none;
-}
-
-.hide {
-    display: none;
-}
-
-.quiz-home-page h2 {
-    font-weight: bold;
-    font-size: 50px;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    margin: 10px 0;
-    position: absolute;
-    top: 2em;
-    right: 0;
-    left: 0;
-}
+/* Home Page */ 
 
 .quiz-home-page p {
     text-align: center;
@@ -132,84 +111,18 @@ header h1 {
     cursor: pointer;
 }
 
-.button {
-    padding: 0.2em 1.4em;
-    margin: 0rem 0.5rem 0.5rem 0rem;
-    border-radius: 1.5rem;
-    box-sizing: border-box;
-    font-family: lato;
-    font-weight: bold;
-    background-color: yellow;
-    cursor: pointer;
+/* Rules Page */ 
+
+.rules-container {
+    padding: 5px 10px;
+    font-size: 1em;
 }
 
-.question-container {
-    position: absolute;
-    top: 3em;
-    right: 1em;
-    left: 1em;
-    height: 60%;
-    overflow: hidden;
+.rules-container ul {
+    list-style-type: none;
 }
 
-#landmark {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-
-}
-
-
-.options-container {
-    position: absolute;
-
-    right: 1em;
-    left: 1em;
-    bottom: 4em;
-}
-
-.next-retry-container {
-    position: absolute;
-    right: 1em;
-    left: 1em;
-    bottom: 1em;
-}
-
-.retry-button,
-.next-button {
-    background-color: cyan;
-}
-
-.quiz-complete {
-    height: 50%;
-    width: 50%;
-}
-
-.quiz-complete h1 {
-    font-size: xx-large;
-}
-
-.results-container {
-    display: flex;
-    flex-direction: column;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-input {
-    box-shadow: 0 0 2px 0.5px;
-}
-
-.results-container input,
-button {
-    margin: 5px 0;
-    padding: 5px 0 5px;
-    text-align: center;
-}
+/* High Scores Page */ 
 
 .high-scores h1 {
     font-size: xx-large;
@@ -243,16 +156,118 @@ button {
     width: 50%;
 }
 
-.correct {
-    background-color: green;
-    color: white;
+/* Quiz Page */ 
+
+.quiz-home-page h2 {
+    font-weight: bold;
+    font-size: 50px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 10px 0;
+    position: absolute;
+    top: 2em;
+    right: 0;
+    left: 0;
 }
 
-.incorrect {
-    background-color: red;
-    color: white;
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 10px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-size: x-large;
 }
 
+.nav-bar i {
+    color: black;
+    font-size: 16px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.nav-bar i:hover {
+    background-color: yellow;
+}
+
+.question-container {
+    position: absolute;
+    top: 3em;
+    right: 1em;
+    left: 1em;
+    height: 60%;
+    overflow: hidden;
+}
+
+
+#landmark {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+
+}
+
+.options-container {
+    position: absolute;
+
+    right: 1em;
+    left: 1em;
+    bottom: 4em;
+}
+
+.next-retry-container {
+    position: absolute;
+    right: 1em;
+    left: 1em;
+    bottom: 1em;
+}
+
+.retry-button,
+.next-button {
+    background-color: cyan;
+}
+
+/* Quiz Completion */ 
+
+.quiz-complete {
+    height: 50%;
+    width: 50%;
+}
+
+.quiz-complete h1 {
+    font-size: xx-large;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    box-shadow: 0 0 2px 0.5px;
+}
+
+.results-container input,
+button {
+    margin: 5px 0;
+    padding: 5px 0 5px;
+    text-align: center;
+}
+
+/* Class style to toggle containers. */ 
+.hide {
+    display: none;
+}
 
 /* media queries */
 
@@ -260,7 +275,6 @@ button {
 
     body {
         padding: 0.5rem;
-        color: purple;
     }
 
     header h1 {
@@ -275,7 +289,6 @@ button {
         top: 1em;
         font-size: 3.5rem;
     }
-
 
     .quiz-home-page p {
         position: absolute;
@@ -301,7 +314,6 @@ button {
         top: 3rem;
     }
 
-
     .options-container {
         display: flex;
         flex-wrap: wrap;
@@ -317,7 +329,6 @@ button {
 
     .next-retry-container {
         margin-top: 8.6rem;
-
     }
 }
 
@@ -325,7 +336,6 @@ button {
 
     body {
         padding: 0.5rem;
-        color: green;
     }
 
     header h1 {
@@ -490,7 +500,6 @@ button {
 
     .next-retry-container {
         bottom: 1em;
-
     }
 
     .navigation-btns {
