@@ -199,6 +199,8 @@ Picture This was tested across different devices and also by using The Responsiv
 
 [JSHint Validator](assets/images/jshint.png)
 
+- When the website is accessed through Incognito mode, an error message stating "highScores.map is not a function" appears. After investigating the issue and consulting with the Code Institute Tutor Assistance team, it was determined that the error occurs because Incognito mode restricts the storage of cookies. The highScores data, which is used in the website, is retrieved from cookies. However, it is important to note that this issue is specific to Incognito mode and is not expected to affect the assessment of Picture This! under normal browser conditions.
+
 # Deployment 
 
 Picture This! was deployed to GitHub pages The steps to deploy are: 

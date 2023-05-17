@@ -222,6 +222,46 @@ let quizQuestions = [{
             }
         ]
     },
+    {
+        imageSrc: "assets/images/dubai.webp",
+        options: [{
+                text: 'Dubai',
+                isCorrect: true
+            },
+            {
+                text: 'United Arab Emirates',
+                isCorrect: false
+            },
+            {
+                text: 'Qatar',
+                isCorrect: true
+            },
+            {
+                text: 'Saudi Arabia',
+                isCorrect: false
+            }
+        ]
+    },
+    {
+        imageSrc: "assets/images/toronto.jpg",
+        options: [{
+                text: 'Ottawa',
+                isCorrect: false
+            },
+            {
+                text: 'Vancouver',
+                isCorrect: false
+            },
+            {
+                text: 'Seattle',
+                isCorrect: false
+            },
+            {
+                text: 'Toronto',
+                isCorrect: true
+            }
+        ]
+    },
 ];
 
 
@@ -472,11 +512,11 @@ function getCookie(cookieName) {
  * Creates a HTML list of high scores. 
  * Map method generates a HTML list by iterating through each score object in array.
  */
-
-
+console.log(document.cookie)
 highScores.map(score => {
     highScoresList.innerHTML += `<li>${score.name} ${score.score}</li>`;
 });
+
 /**
  * Checks if user selects correct answer.
  */
